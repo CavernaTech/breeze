@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-const style = {
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100vh',
-  justifyContent: 'center',
-};
-
 function CenterBox({ children }) {
   return (
-    <Box sx={style}>
+    <Box sx={(theme) => ({
+      backgroundColor: theme.palette.primary.contrastText,
+      color: theme.palette.primary.light,
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      justifyContent: 'center',
+    })}>
       {children}
     </Box>
   );

@@ -1,16 +1,20 @@
 import { RecoilRoot } from 'recoil';
-import { Typography } from '@mui/material';
+import { CssBaseline, Typography } from '@mui/material';
 
+import Theme from './utils/theme/theme.component';
 import CenterBox from './components/centerBox';
 
 function App() {
   return (
     <RecoilRoot>
-      <CenterBox>
-        <Typography align="center" variant="h1">
-          Breeze
-        </Typography>
-      </CenterBox>
+      <Theme>
+        <CenterBox>
+          <CssBaseline />
+          <Typography align="center" variant="h1">
+            Breeze
+          </Typography>
+        </CenterBox>
+      </Theme>
     </RecoilRoot>
   );
 }
