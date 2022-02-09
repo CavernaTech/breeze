@@ -13,10 +13,6 @@ const Theme = (prefersDarkMode) =>
           secondary: {
             main: colors.cyan[300]
           },
-          text: {
-            primary: colors.grey[900],
-            secondary: colors.grey[100],
-          }
         },
       }),
     [prefersDarkMode],
