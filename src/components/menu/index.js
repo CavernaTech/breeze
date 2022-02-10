@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Divider,
   Grid,
@@ -12,18 +12,39 @@ import {
 import {
   Cloud,
   ContentCopy,
-  ContentCut,
   ContentPaste,
-  Dashboard
+  Dashboard,
+  Menu
 } from '@mui/icons-material';
+import clsx from 'clsx';
+
+import useStyles from './style';
 
 
 function MenuComponent({ children }) {
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
+
   return (
     <Grid alignItems="stretch" container direction="row" justifyContent="flex-start" spacing={2}>
-      <Grid item md={3}>
-        <Paper sx={{ maxWidth: '100%', height: '100vh' }}>
+      <Grid item md={open ? 3 : 1}>
+        <Paper
+          className={clsx(
+            classes.drawer,
+            {
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }
+          )}
+        >
           <MenuList>
+            <MenuItem onClick={() => setOpen(!open)}>
+              <ListItemIcon>
+                <Menu fontSize="small" />
+              </ListItemIcon>
+            </MenuItem>
+            <Divider />
             <MenuItem>
               <ListItemIcon>
                 <Dashboard />
@@ -61,7 +82,7 @@ function MenuComponent({ children }) {
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item md={9}>
+      <Grid item md={open ? 9 : 11}>
         {children}
       </Grid>
     </Grid>
