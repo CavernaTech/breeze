@@ -6,7 +6,7 @@ const Theme = (prefersDarkMode) =>
     () =>
       createTheme({
         palette: {
-          type: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? 'dark' : 'light',
           primary: {
             main: colors.cyan[600],
           },

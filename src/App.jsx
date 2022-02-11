@@ -1,9 +1,12 @@
 import { RecoilRoot } from 'recoil';
 import { CssBaseline, Typography } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
 
 import Theme from './utils/theme/theme.component';
 import CenterBox from './components/centerBox';
 import DashboardPage from './pages/dashboard.page';
+import PedidosPage from './pages/pedidos.page';
+import EstoquePage from './pages/estoque.page';
 
 function App() {
   return (
@@ -15,7 +18,11 @@ function App() {
             Breeze
           </Typography>
         </CenterBox>
-        <DashboardPage />
+        <Routes>
+          <Route path="/" element={<DashboardPage />}  />
+          <Route path="/pedidos" element={<PedidosPage />} />
+          <Route path="/estoque" element={<EstoquePage />} />
+        </Routes>
       </Theme>
     </RecoilRoot>
   );

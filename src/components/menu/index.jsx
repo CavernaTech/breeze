@@ -10,15 +10,18 @@ import {
   Typography
 } from '@mui/material';
 import {
-  Cloud,
-  ContentCopy,
-  ContentPaste,
-  Dashboard,
+  BookOutlined,
+  CoffeeOutlined,
+  ContactPageOutlined,
+  DashboardOutlined,
+  HailOutlined,
+  Inventory2Outlined,
   Menu
 } from '@mui/icons-material';
 import clsx from 'clsx';
 
 import useStyles from './style';
+import MenuItemLink from './menuItemLink';
 
 
 function MenuComponent({ children }) {
@@ -41,44 +44,60 @@ function MenuComponent({ children }) {
           <MenuList>
             <MenuItem onClick={() => setOpen(!open)}>
               <ListItemIcon>
-                <Menu fontSize="small" />
+                <Menu />
               </ListItemIcon>
+              <ListItemText />
+              <Typography variant="body2" color="text.secondary">
+                fechar menu
+              </Typography>
             </MenuItem>
             <Divider />
-            <MenuItem>
+            <MenuItemLink to="/">
               <ListItemIcon>
-                <Dashboard />
+                <DashboardOutlined />
               </ListItemIcon>
               <ListItemText>Dashboard</ListItemText>
               <Typography variant="body2" color="text.secondary">
-                ⌘X
+                visão geral do Breeze
               </Typography>
-            </MenuItem>
-            <MenuItem>
+            </MenuItemLink>
+            <MenuItemLink to="/pedidos">
               <ListItemIcon>
-                <ContentCopy fontSize="small" />
+                <BookOutlined />
               </ListItemIcon>
-              <ListItemText>Copy</ListItemText>
+              <ListItemText>Pedidos</ListItemText>
               <Typography variant="body2" color="text.secondary">
-                ⌘C
+                abertura e visualização
               </Typography>
-            </MenuItem>
-            <MenuItem>
+            </MenuItemLink>
+            <MenuItemLink to="/estoque">
               <ListItemIcon>
-                <ContentPaste fontSize="small" />
+                <Inventory2Outlined />
               </ListItemIcon>
-              <ListItemText>Paste</ListItemText>
+              <ListItemText>Estoque</ListItemText>
               <Typography variant="body2" color="text.secondary">
-                ⌘V
+                movimentação e visualização
               </Typography>
-            </MenuItem>
+            </MenuItemLink>
             <Divider />
-            <MenuItem>
+            <MenuItemLink to="/clientes">
               <ListItemIcon>
-                <Cloud fontSize="small" />
+                <ContactPageOutlined />
               </ListItemIcon>
-              <ListItemText>Web Clipboard</ListItemText>
-            </MenuItem>
+              <ListItemText>Clientes</ListItemText>
+            </MenuItemLink>
+            <MenuItemLink to="/fornecedores">
+              <ListItemIcon>
+                <HailOutlined />
+              </ListItemIcon>
+              <ListItemText>Fornecedores</ListItemText>
+            </MenuItemLink>
+            <MenuItemLink to="/produtos">
+              <ListItemIcon>
+                <CoffeeOutlined />
+              </ListItemIcon>
+              <ListItemText>Produtos</ListItemText>
+            </MenuItemLink>
           </MenuList>
         </Paper>
       </Grid>
