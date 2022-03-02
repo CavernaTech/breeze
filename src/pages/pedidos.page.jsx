@@ -44,7 +44,6 @@ function PedidosPage() {
           <TableContainer component={Paper}>
             <Table
               sx={{ minWidth: 300 }}
-              sx={{ minWidth: 300 }}
               size="small"
               children
               aria-label="simple table"
