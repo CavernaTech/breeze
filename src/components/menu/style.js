@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: "100%",
+    width: "100vw",
     minHeight: "100vh",
     whiteSpace: "nowrap",
     position: "fixed",
@@ -33,7 +33,16 @@ const useStyles = makeStyles((theme) => ({
 export const menuItemIconStyles = makeStyles((theme) => ({
   disabled: {
     color: theme.palette.text.disabled,
+    minWidth: 0,
   },
+  title: {
+    minWidth: '30%',
+  },
+  description: {
+    color: theme.palette.text.secondary,
+    minWidth: 0,
+    overflow: "hidden",
+  }
 }));
 
 export default useStyles;

@@ -13,6 +13,9 @@ const Theme = (prefersDarkMode) =>
           secondary: {
             main: colors.cyan[300]
           },
+          background: {
+            default: prefersDarkMode ? '#121212' : '#FAFAFA'
+          }
         },
       }),
     [prefersDarkMode],

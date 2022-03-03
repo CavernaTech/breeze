@@ -12,8 +12,10 @@ function MenuItemIcon({ to, icon, title, description, disabled }) {
           { icon }
         </ListItemIcon>
       </Tooltip>
-      <ListItemText className={disabled ? classes.disabled : null}>{title}</ListItemText>
-      <Typography variant="body2" color="text.secondary">
+      <ListItemText className={disabled ? classes.disabled : classes.title}>
+        {title}
+      </ListItemText>
+      <Typography variant="body2" className={classes.description}>
         {description}
       </Typography>
     </MenuItemLink>

@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:"center",
     alignItems:"center",
     minHeight:"100vh",
+    paddingLeft: theme.spacing(6)
   },
   paper: {
     padding: '1.1em',
