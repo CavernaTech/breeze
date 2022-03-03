@@ -55,7 +55,7 @@ function MenuComponent({ children }) {
           </Toolbar>
         </AppBar>
       </Box>
-      <Grid item md={open ? 3 : 1}>
+      <Grid item sm={open ? 3 : 1}>
         <Paper
           className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
@@ -117,7 +117,8 @@ function MenuComponent({ children }) {
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item md={open ? 9 : 11} sx={{ marginTop: '10em', marginBottom: '5em' }}>
+      <Grid item sm={open ? 9 : 11}>
+        <Box sx={{height: '6em'}} />
         {children}
       </Grid>
     </Grid>
