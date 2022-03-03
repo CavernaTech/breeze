@@ -1,11 +1,12 @@
 import React from 'react';
 import MenuComponent from '../components/menu/index';
+import PageComponent from '../components/page.component';
 
 function DashboardPage() {
   return (
     <React.Fragment>
       <MenuComponent>
-        <p>Dashboard</p>
+        <PageComponent title="Dashboard" icon="📊" />
       </MenuComponent>
     </React.Fragment>
   );

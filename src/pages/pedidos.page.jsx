@@ -39,7 +39,7 @@ const rows = [
 function PedidosPage() {
   return (
     <MenuComponent>
-      <PageComponent>
+      <PageComponent title="Pedidos" icon="📋">
         <TableContainer component={Paper}>
           <Table
             sx={{ minWidth: 300 }}
