@@ -27,7 +27,7 @@ const rows = [
     "👳‍♂️ Vilson"
   ),
   createData(
-    "💰 Venda",
+    "🛒 Compra",
     "❌",
     200,
     timeSince(new Date(2022, 1, 25, 21, 43, 15)),
@@ -62,9 +62,9 @@ function PedidosPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {(new Array(20)).fill(0, 1, 20).map((i) => rows.map((row) => (
                 <TableRow
-                  key={row.categoria}
+                  key={`${i}${row.categoria}`}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell>{row.categoria}</TableCell>
@@ -74,7 +74,7 @@ function PedidosPage() {
                   <TableCell align="right">{row.fim}</TableCell>
                   <TableCell align="right">{row.fechamento}</TableCell>
                 </TableRow>
-              ))}
+              )))}
             </TableBody>
           </Table>
         </TableContainer>
