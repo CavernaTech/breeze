@@ -49,15 +49,15 @@ function PedidosPage() {
           >
             <TableHead>
               <TableRow>
-                <EmojiTableCell emoji="🎈" tooltip="Categoria" />
-                <EmojiTableCell emoji="❕" tooltip="Concluída" />
-                <EmojiTableCell emoji="💲" tooltip="Valor" />
-                <EmojiTableCell align="right" emoji="📅" tooltip="Aberta" />
-                <EmojiTableCell align="right" emoji="⏳" tooltip="Tempo" />
+                <EmojiTableCell emoji="🧾" title="Processo" />
+                <EmojiTableCell emoji="📦" title="Etapa" />
+                <EmojiTableCell emoji="💲" title="Valor" />
+                <EmojiTableCell align="right" emoji="📅" title="Aberto" />
+                <EmojiTableCell align="right" emoji="⏳" title="Tempo" />
                 <EmojiTableCell
                   align="right"
                   emoji="👨‍💼"
-                  tooltip="Funcionário"
+                  title="Funcionário"
                 />
               </TableRow>
             </TableHead>
