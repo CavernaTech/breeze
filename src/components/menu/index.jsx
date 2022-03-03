@@ -10,18 +10,24 @@ import {
   MenuItem,
   MenuList,
   Paper,
+  Select,
   Toolbar,
   Typography,
 } from "@mui/material";
 import {
+  AirlineStopsOutlined,
   BookOutlined,
+  Cable,
   CoffeeOutlined,
   ContactPageOutlined,
   DashboardOutlined,
   HailOutlined,
+  MoveToInbox,
   Inventory2Outlined,
   Menu,
   MenuBook,
+  GroupsOutlined,
+  Add,
 } from "@mui/icons-material";
 import clsx from "clsx";
 
@@ -48,9 +54,19 @@ function MenuComponent({ children }) {
             <IconButton onClick={() => setOpen(!open)}>
               <Menu />
             </IconButton>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              Minha Empresa
-            </Typography>
+            <Select displayEmpty value="my">
+              <MenuItem disabled value="my">
+                Minha Empresa
+              </MenuItem>
+              <Button disabled fullWidth variant="text">
+                <Add />
+                Nova Empresa
+              </Button>
+                <Typography variant="body2" color="text.disabled" textAlign="right">
+                em breve
+                </Typography>
+            </Select>
+            <Box sx={{ flexGrow: 1 }} />
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
@@ -99,6 +115,16 @@ function MenuComponent({ children }) {
             />
             <MenuItemIcon
               disabled
+              title="Processos"
+              icon={<Cable />}
+            />
+            <MenuItemIcon
+              disabled
+              title="Etapas"
+              icon={<AirlineStopsOutlined />}
+            />
+            <MenuItemIcon
+              disabled
               title="Clientes"
               icon={<ContactPageOutlined />}
             />
@@ -107,11 +133,20 @@ function MenuComponent({ children }) {
               title="Fornecedores"
               icon={<HailOutlined />}
             />
+            <MenuItemIcon
+              disabled
+              title="Funcionários"
+              icon={<GroupsOutlined />}
+            />
             <Divider />
             <MenuItemIcon
-              title="Cardápios"
-              description="edição e visualização"
-              to="/cardapios"
+              disabled
+              title="Ponto de Pedidos"
+              icon={<MoveToInbox />}
+            />
+            <MenuItemIcon
+              disabled
+              title="Catálogos"
               icon={<MenuBook />}
             />
           </MenuList>
