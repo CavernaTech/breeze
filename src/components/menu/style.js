@@ -1,27 +1,33 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: '100%',
-    height: '100vh',
-    whiteSpace: 'nowrap',
+    width: "100%",
+    height: "100vh",
+    whiteSpace: "nowrap",
   },
   drawerOpen: {
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerClose: {
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: 'hidden',
+    overflowX: "hidden",
     width: theme.spacing(10),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       width: theme.spacing(6),
     },
+  },
+}));
+
+export const menuItemIconStyles = makeStyles((theme) => ({
+  disabled: {
+    color: theme.palette.text.disabled,
   },
 }));
 
