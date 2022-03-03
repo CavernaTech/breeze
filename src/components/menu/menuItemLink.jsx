@@ -13,7 +13,7 @@ function MenuItemLink({ to, children }) {
   );
 
   return (
-    <MenuItem button component={renderLink}>
+    <MenuItem component={renderLink}>
       {children}
     </MenuItem>
   );

@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
+  AppBar,
+  Button,
   Divider,
   Grid,
+  IconButton,
   ListItemIcon,
   ListItemText,
   MenuItem,
   MenuList,
   Paper,
-  Typography
-} from '@mui/material';
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import {
   BookOutlined,
   CoffeeOutlined,
@@ -16,13 +20,14 @@ import {
   DashboardOutlined,
   HailOutlined,
   Inventory2Outlined,
-  Menu
-} from '@mui/icons-material';
-import clsx from 'clsx';
+  Menu,
+  MenuBook,
+} from "@mui/icons-material";
+import clsx from "clsx";
 
-import useStyles from './style';
-import MenuItemLink from './menuItemLink';
-
+import useStyles from "./style";
+import MenuItemIcon from "./menuItemIcom";
+import { Box } from "@mui/system";
 
 function MenuComponent({ children }) {
   const [open, setOpen] = useState(false);
@@ -30,16 +35,32 @@ function MenuComponent({ children }) {
   const classes = useStyles();
 
   return (
-    <Grid alignItems="stretch" container direction="row" justifyContent="flex-start" spacing={2}>
-      <Grid item md={open ? 3 : 1}>
+    <Grid
+      alignItems="stretch"
+      container
+      direction="row"
+      justifyContent="flex-start"
+      spacing={2}
+    >
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed">
+          <Toolbar>
+            <IconButton onClick={() => setOpen(!open)}>
+              <Menu />
+            </IconButton>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              Minha Empresa
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Grid item sm={open ? 3 : 1}>
         <Paper
-          className={clsx(
-            classes.drawer,
-            {
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }
-          )}
+          className={clsx(classes.drawer, {
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          })}
         >
           <MenuList>
             <MenuItem onClick={() => setOpen(!open)}>
@@ -52,60 +73,56 @@ function MenuComponent({ children }) {
               </Typography>
             </MenuItem>
             <Divider />
-            <MenuItemLink to="/">
-              <ListItemIcon>
-                <DashboardOutlined />
-              </ListItemIcon>
-              <ListItemText>Dashboard</ListItemText>
-              <Typography variant="body2" color="text.secondary">
-                visão geral do Breeze
-              </Typography>
-            </MenuItemLink>
-            <MenuItemLink to="/pedidos">
-              <ListItemIcon>
-                <BookOutlined />
-              </ListItemIcon>
-              <ListItemText>Pedidos</ListItemText>
-              <Typography variant="body2" color="text.secondary">
-                abertura e visualização
-              </Typography>
-            </MenuItemLink>
-            <MenuItemLink to="/estoque">
-              <ListItemIcon>
-                <Inventory2Outlined />
-              </ListItemIcon>
-              <ListItemText>Estoque</ListItemText>
-              <Typography variant="body2" color="text.secondary">
-                movimentação e visualização
-              </Typography>
-            </MenuItemLink>
+            <MenuItemIcon
+              title="Dashboard"
+              description="visão geral do Breeze"
+              to="/"
+              icon={<DashboardOutlined />}
+            />
+            <MenuItemIcon
+              title="Pedidos"
+              description="abertura e visualização"
+              to="/pedidos"
+              icon={<BookOutlined />}
+            />
+            <MenuItemIcon
+              disabled
+              title="Estoque"
+              icon={<Inventory2Outlined />}
+            />
             <Divider />
-            <MenuItemLink to="/clientes">
-              <ListItemIcon>
-                <ContactPageOutlined />
-              </ListItemIcon>
-              <ListItemText>Clientes</ListItemText>
-            </MenuItemLink>
-            <MenuItemLink to="/fornecedores">
-              <ListItemIcon>
-                <HailOutlined />
-              </ListItemIcon>
-              <ListItemText>Fornecedores</ListItemText>
-            </MenuItemLink>
-            <MenuItemLink to="/produtos">
-              <ListItemIcon>
-                <CoffeeOutlined />
-              </ListItemIcon>
-              <ListItemText>Produtos</ListItemText>
-            </MenuItemLink>
+            <MenuItemIcon
+              title="Produtos"
+              description="edição e visualização"
+              to="/produtos"
+              icon={<CoffeeOutlined />}
+            />
+            <MenuItemIcon
+              disabled
+              title="Clientes"
+              icon={<ContactPageOutlined />}
+            />
+            <MenuItemIcon
+              disabled
+              title="Fornecedores"
+              icon={<HailOutlined />}
+            />
+            <Divider />
+            <MenuItemIcon
+              title="Cardápios"
+              description="edição e visualização"
+              to="/cardapios"
+              icon={<MenuBook />}
+            />
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item md={open ? 9 : 11}>
+      <Grid item sm={open ? 9 : 11}>
+        <Box sx={{height: '6em'}} />
         {children}
       </Grid>
     </Grid>
   );
-};
+}
 
 export default MenuComponent;
