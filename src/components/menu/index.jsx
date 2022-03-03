@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import {
+  AppBar,
+  Button,
   Divider,
   Grid,
+  IconButton,
   ListItemIcon,
   ListItemText,
   MenuItem,
   MenuList,
   Paper,
+  Toolbar,
   Typography,
 } from "@mui/material";
 import {
@@ -23,6 +27,7 @@ import clsx from "clsx";
 
 import useStyles from "./style";
 import MenuItemIcon from "./menuItemIcom";
+import { Box } from "@mui/system";
 
 function MenuComponent({ children }) {
   const [open, setOpen] = useState(false);
@@ -37,6 +42,19 @@ function MenuComponent({ children }) {
       justifyContent="flex-start"
       spacing={2}
     >
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed">
+          <Toolbar>
+            <IconButton onClick={() => setOpen(!open)}>
+              <Menu />
+            </IconButton>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              Minha Empresa
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Grid item md={open ? 3 : 1}>
         <Paper
           className={clsx(classes.drawer, {
@@ -99,7 +117,7 @@ function MenuComponent({ children }) {
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item md={open ? 9 : 11}>
+      <Grid item md={open ? 9 : 11} sx={{ marginTop: '10em', marginBottom: '5em' }}>
         {children}
       </Grid>
     </Grid>

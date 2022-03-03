@@ -3,8 +3,13 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   drawer: {
     width: "100%",
-    height: "100vh",
+    minHeight: "100vh",
     whiteSpace: "nowrap",
+    position: "fixed",
+    left: 0,
+    [theme.breakpoints.up("md")]: {
+      width: "25vw"
+    }
   },
   drawerOpen: {
     transition: theme.transitions.create("width", {
@@ -18,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: theme.spacing(10),
+    width: 0,
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(6),
     },
