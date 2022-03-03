@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    width: "100%",
+    width: "100vw",
     minHeight: "100vh",
     whiteSpace: "nowrap",
     position: "fixed",
