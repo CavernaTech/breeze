@@ -1,20 +1,20 @@
-import React from 'react';
-import { colors, createTheme } from '@mui/material';
+import React from "react";
+import { createTheme } from "@mui/material";
 
 const Theme = (prefersDarkMode) =>
   React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? 'dark' : 'light',
+          mode: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: colors.cyan[600],
+            main: "#fafafa",
           },
           secondary: {
-            main: colors.cyan[300]
+            main: "#80d8ff"
           },
           background: {
-            default: prefersDarkMode ? '#121212' : '#FAFAFA'
+            default: prefersDarkMode ? "#121212" : "#FAFAFA"
           }
         },
       }),

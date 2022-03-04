@@ -12,15 +12,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function EmojiCell({ align, emoji, title }) {
+function EmojiTableCell({ align, children, variant }) {
   const classes = useStyles();
   return (
-    <Tooltip title={title}>
-      <TableCell align={align || "inherit"} >
-        <Typography variant="h5" className={classes.title}>{emoji} - {title}</Typography>
+    <Tooltip title={children}>
+      <TableCell align={align} >
+        <Typography variant={variant} className={classes.title}>{children}</Typography>
       </TableCell>
     </Tooltip>
   );
 }
 
-export default EmojiCell;
+EmojiTableCell.defaultProps = {
+  align: "inherit",
+  variant: "h5"
+};
+
+export default EmojiTableCell;
