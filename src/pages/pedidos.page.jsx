@@ -8,10 +8,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import MenuComponent from "../components/menu";
 import EmojiTableCell from "../components/emojiTableCell.component";
 import timeSince from "../utils/theme/timeSince";
 import PageComponent from "../components/page.component";
+import MenuContainer from "../containers/menu.container";
 
 function createData(categoria, concluido, valor, inicio, fim, fechamento) {
   return { categoria, concluido, valor, inicio, fim, fechamento };
@@ -38,7 +38,7 @@ const rows = [
 
 function PedidosPage() {
   return (
-    <MenuComponent>
+    <MenuContainer>
       <PageComponent title="Pedidos" icon="📋">
         <TableContainer component={Paper}>
           <Table
@@ -75,7 +75,7 @@ function PedidosPage() {
           </Table>
         </TableContainer>
       </PageComponent>
-    </MenuComponent>
+    </MenuContainer>
   );
 }
 

@@ -35,7 +35,7 @@ import useStyles from "./style";
 import MenuItemIcon from "./menuItemIcom";
 import { Box } from "@mui/system";
 
-function MenuComponent({ children }) {
+function MenuComponent({ children, isAuthenticated, login }) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -62,12 +62,18 @@ function MenuComponent({ children }) {
                 <Add />
                 Nova Empresa
               </Button>
-                <Typography variant="body2" color="text.disabled" textAlign="right">
+              <Typography
+                variant="body2"
+                color="text.disabled"
+                textAlign="right"
+              >
                 em breve
-                </Typography>
+              </Typography>
             </Select>
             <Box sx={{ flexGrow: 1 }} />
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" disabled={isAuthenticated} onClick={login}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
@@ -113,11 +119,7 @@ function MenuComponent({ children }) {
               to="/produtos"
               icon={<CoffeeOutlined />}
             />
-            <MenuItemIcon
-              disabled
-              title="Processos"
-              icon={<Cable />}
-            />
+            <MenuItemIcon disabled title="Processos" icon={<Cable />} />
             <MenuItemIcon
               disabled
               title="Etapas"
@@ -144,16 +146,12 @@ function MenuComponent({ children }) {
               title="Ponto de Pedidos"
               icon={<MoveToInbox />}
             />
-            <MenuItemIcon
-              disabled
-              title="Catálogos"
-              icon={<MenuBook />}
-            />
+            <MenuItemIcon disabled title="Catálogos" icon={<MenuBook />} />
           </MenuList>
         </Paper>
       </Grid>
       <Grid item sm={open ? 9 : 12}>
-        <Box sx={{height: '6em'}} />
+        <Box sx={{ height: "6em" }} />
         {children}
       </Grid>
     </Grid>
