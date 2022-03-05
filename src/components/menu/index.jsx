@@ -34,8 +34,9 @@ import clsx from "clsx";
 import useStyles from "./style";
 import MenuItemIcon from "./menuItemIcom";
 import { Box } from "@mui/system";
+import AccountComponent from "./account";
 
-function MenuComponent({ children, isAuthenticated, login }) {
+function MenuComponent({ children, isAuthenticated, user, login, logout }) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -51,7 +52,7 @@ function MenuComponent({ children, isAuthenticated, login }) {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton onClick={() => setOpen(!open)}>
+            <IconButton onClick={() => setOpen(!open)} size="small">
               <Menu />
             </IconButton>
             <Select displayEmpty value="my">
@@ -71,9 +72,12 @@ function MenuComponent({ children, isAuthenticated, login }) {
               </Typography>
             </Select>
             <Box sx={{ flexGrow: 1 }} />
-            <Button color="inherit" disabled={isAuthenticated} onClick={login}>
-              Login
-            </Button>
+            <AccountComponent
+              isAuthenticated={isAuthenticated}
+              user={user}
+              login={login}
+              logout={logout}
+            />
           </Toolbar>
         </AppBar>
       </Box>

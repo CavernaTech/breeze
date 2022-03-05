@@ -1,5 +1,9 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { authProvider, authProviderStatus } from "../provider/auth.provider";
+import {
+  authProvider,
+  authProviderInfo,
+  authProviderStatus,
+} from "../provider/auth.provider";
 
 import AuthenticationRepository from "../repositories/authentication.repository";
 
@@ -10,6 +14,7 @@ const AuthenticationController = {
   useAuthenticationStatus: () => useRecoilValue(authProviderStatus),
   useAuthenticationSync: () =>
     AuthenticationRepository.sessionListen(useSetRecoilState(authProvider)),
+  useAuthenticationInfo: () => useRecoilValue(authProviderInfo),
 };
 
 export default AuthenticationController;
