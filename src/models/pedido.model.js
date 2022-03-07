@@ -20,7 +20,7 @@ const Pedido = {
     fechamento: fechamento || null,
     cliente: cliente || null,
     fornecedor: fornecedor || null,
-    produtos: produtos || null,
+    produtos: produtos || [], // codigo, valor, estoque
     valor: valor || null,
     desconto: desconto || null,
     tipo: tipo || 'saida', // saida=Diminuir Estoque, entrada=Aumentar
