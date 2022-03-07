@@ -25,7 +25,7 @@ const Pedido = {
     desconto: desconto || null,
     tipo: tipo || 'saida', // saida=Diminuir Estoque, entrada=Aumentar
     processo: processo || '💰 Venda',
-    etapas: etapas || ['Pedido Aberto'],
+    etapas: etapas || [], // codigo, funcionário, data
     concluido: concluido || null, // null=Não, f=Cancelado, t=Sim 
   }),
 };
