@@ -41,4 +41,11 @@ function AccountComponent({ isAuthenticated, user, login, logout }) {
   );
 }
 
+AccountComponent.defaultProps = {
+  user: {
+    name: '',
+    photo: ''
+  }
+}
+
 export default AccountComponent;
