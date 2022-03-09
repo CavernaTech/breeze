@@ -9,6 +9,7 @@ import EstoquePage from "./pages/estoque.page";
 import CardapiosPage from "./pages/cardapios.page";
 import ProdutosPage from "./pages/produtos.page";
 import AuthenticationController from "./controllers/authentication.controller";
+import TerminalContainer from "./containers/terminal.container";
 
 function App() {
   AuthenticationController.useAuthenticationSync();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/estoque" element={<EstoquePage />} />
         <Route path="/produtos" element={<ProdutosPage />} />
         <Route path="/cardapios" element={<CardapiosPage />} />
+        <Route path="/terminal" element={<TerminalContainer />} />
       </Routes>
     </Theme>
   );

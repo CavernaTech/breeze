@@ -146,8 +146,9 @@ function MenuComponent({ children, isAuthenticated, user, login, logout }) {
             />
             <Divider />
             <MenuItemIcon
-              disabled
-              title="Ponto de Pedidos"
+              title="Terminal de Pedidos"
+              description="abertura e acompanhamento"
+              to="/terminal"
               icon={<MoveToInbox />}
             />
             <MenuItemIcon disabled title="Catálogos" icon={<MenuBook />} />

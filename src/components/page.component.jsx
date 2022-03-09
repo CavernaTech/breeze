@@ -42,8 +42,8 @@ function PageComponent({ children, title, icon }) {
 }
 
 PageComponent.defaultProps = {
-  title: "Página",
-  icon: "📓"
+  title: "",
+  icon: ""
 }
 
 export default PageComponent;
