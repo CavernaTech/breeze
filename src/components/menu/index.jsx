@@ -36,7 +36,15 @@ import MenuItemIcon from "./menuItemIcom";
 import { Box } from "@mui/system";
 import AccountComponent from "./account";
 
-function MenuComponent({ children, isAuthenticated, user, login, logout }) {
+function MenuComponent({
+  children,
+  isAuthenticated,
+  user,
+  login,
+  logout,
+  title,
+  hideLogin
+}) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -54,25 +62,33 @@ function MenuComponent({ children, isAuthenticated, user, login, logout }) {
           <IconButton onClick={() => setOpen(!open)} size="small">
             <Menu />
           </IconButton>
-          <Select displayEmpty value="my">
-            <MenuItem disabled value="my">
-              Minha Empresa
-            </MenuItem>
-            <Button disabled fullWidth variant="text">
-              <Add />
-              Nova Empresa
-            </Button>
-            <Typography variant="body2" color="text.disabled" textAlign="right">
-              em breve
-            </Typography>
-          </Select>
+          {title || (
+            <Select displayEmpty value="my">
+              <MenuItem disabled value="my">
+                Minha Empresa
+              </MenuItem>
+              <Button disabled fullWidth variant="text">
+                <Add />
+                Nova Empresa
+              </Button>
+              <Typography
+                variant="body2"
+                color="text.disabled"
+                textAlign="right"
+              >
+                em breve
+              </Typography>
+            </Select>
+          )}
           <Box sx={{ flexGrow: 1 }} />
-          <AccountComponent
-            isAuthenticated={isAuthenticated}
-            user={user}
-            login={login}
-            logout={logout}
-          />
+          <Box sx={{ display: hideLogin ? "none" : "inherit" }}>
+            <AccountComponent
+              isAuthenticated={isAuthenticated}
+              user={user}
+              login={login}
+              logout={logout}
+            />
+          </Box>
         </Toolbar>
       </AppBar>
       <Grid item sm={open ? 3 : 0}>
@@ -150,11 +166,15 @@ function MenuComponent({ children, isAuthenticated, user, login, logout }) {
         </Paper>
       </Grid>
       <Grid item xs={12} sm={open ? 9 : 12}>
-        <Box sx={{ height: "6em" }} />
         {children}
       </Grid>
     </Grid>
   );
 }
+
+MenuComponent.defaultProps = {
+  title: null,
+  hideLogin: false,
+};
 
 export default MenuComponent;

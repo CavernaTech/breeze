@@ -8,17 +8,17 @@ const Theme = (prefersDarkMode) =>
         palette: {
           mode: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: "#fafafa",
+            main: "#FCFCFC",
           },
           secondary: {
-            main: "#80d8ff"
+            main: "#80d8ff",
           },
           background: {
-            default: prefersDarkMode ? "#121212" : "#FAFAFA"
-          }
+            default: prefersDarkMode ? "#121212" : "#F7F7F7",
+          },
         },
       }),
-    [prefersDarkMode],
+    [prefersDarkMode]
   );
 
 export default Theme;

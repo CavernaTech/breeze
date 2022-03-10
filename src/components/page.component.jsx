@@ -3,18 +3,19 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    minHeight:"100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
     [theme.breakpoints.up("sm")]: {
-      paddingLeft: theme.spacing(6)
+      paddingLeft: theme.spacing(6),
     },
   },
   paper: {
-    padding: '1.1em',
-    minHeight: '60vh',
-    width: '100%'
+    padding: "1.1em",
+    minHeight: "60vh",
+    width: "100%",
+    marginTop: "6em",
   },
 }));
 
@@ -25,14 +26,10 @@ function PageComponent({ children, title, icon }) {
       <Paper className={classes.paper}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Typography variant="h2">
-              {icon}
-            </Typography>
+            <Typography variant="h2">{icon}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h3">
-              {title}
-            </Typography>
+            <Typography variant="h3">{title}</Typography>
           </Grid>
           <Grid item xs={12}>
             {children}
@@ -45,7 +42,7 @@ function PageComponent({ children, title, icon }) {
 
 PageComponent.defaultProps = {
   title: "",
-  icon: ""
-}
+  icon: "",
+};
 
 export default PageComponent;
