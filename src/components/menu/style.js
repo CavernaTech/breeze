@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     [theme.breakpoints.up("md")]: {
       width: "25vw"
-    }
+    },
+    '&:hover': {
+      color: "palette.primary.main"
+    },
   },
   drawerOpen: {
     transition: theme.transitions.create("width", {

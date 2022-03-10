@@ -34,8 +34,9 @@ import clsx from "clsx";
 import useStyles from "./style";
 import MenuItemIcon from "./menuItemIcom";
 import { Box } from "@mui/system";
+import AccountComponent from "./account";
 
-function MenuComponent({ children }) {
+function MenuComponent({ children, isAuthenticated, user, login, logout }) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles();
@@ -48,29 +49,32 @@ function MenuComponent({ children }) {
       justifyContent="flex-start"
       spacing={2}
     >
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed">
-          <Toolbar>
-            <IconButton onClick={() => setOpen(!open)}>
-              <Menu />
-            </IconButton>
-            <Select displayEmpty value="my">
-              <MenuItem disabled value="my">
-                Minha Empresa
-              </MenuItem>
-              <Button disabled fullWidth variant="text">
-                <Add />
-                Nova Empresa
-              </Button>
-                <Typography variant="body2" color="text.disabled" textAlign="right">
-                em breve
-                </Typography>
-            </Select>
-            <Box sx={{ flexGrow: 1 }} />
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton onClick={() => setOpen(!open)} size="small">
+            <Menu />
+          </IconButton>
+          <Select displayEmpty value="my">
+            <MenuItem disabled value="my">
+              Minha Empresa
+            </MenuItem>
+            <Button disabled fullWidth variant="text">
+              <Add />
+              Nova Empresa
+            </Button>
+            <Typography variant="body2" color="text.disabled" textAlign="right">
+              em breve
+            </Typography>
+          </Select>
+          <Box sx={{ flexGrow: 1 }} />
+          <AccountComponent
+            isAuthenticated={isAuthenticated}
+            user={user}
+            login={login}
+            logout={logout}
+          />
+        </Toolbar>
+      </AppBar>
       <Grid item sm={open ? 3 : 0}>
         <Paper
           className={clsx(classes.drawer, {
@@ -113,11 +117,7 @@ function MenuComponent({ children }) {
               to="/produtos"
               icon={<CoffeeOutlined />}
             />
-            <MenuItemIcon
-              disabled
-              title="Processos"
-              icon={<Cable />}
-            />
+            <MenuItemIcon disabled title="Processos" icon={<Cable />} />
             <MenuItemIcon
               disabled
               title="Etapas"
@@ -140,20 +140,17 @@ function MenuComponent({ children }) {
             />
             <Divider />
             <MenuItemIcon
-              disabled
-              title="Ponto de Pedidos"
+              title="Terminal de Pedidos"
+              description="abertura e acompanhamento"
+              to="/terminal"
               icon={<MoveToInbox />}
             />
-            <MenuItemIcon
-              disabled
-              title="Catálogos"
-              icon={<MenuBook />}
-            />
+            <MenuItemIcon disabled title="Catálogos" icon={<MenuBook />} />
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item sm={open ? 9 : 12}>
-        <Box sx={{height: '6em'}} />
+      <Grid item xs={12} sm={open ? 9 : 12}>
+        <Box sx={{ height: "6em" }} />
         {children}
       </Grid>
     </Grid>

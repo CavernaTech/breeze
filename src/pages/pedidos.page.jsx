@@ -8,10 +8,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import MenuComponent from "../components/menu";
 import EmojiTableCell from "../components/emojiTableCell.component";
 import timeSince from "../utils/theme/timeSince";
 import PageComponent from "../components/page.component";
+import MenuContainer from "../containers/menu.container";
 
 function createData(categoria, concluido, valor, inicio, fim, fechamento) {
   return { categoria, concluido, valor, inicio, fim, fechamento };
@@ -19,26 +19,26 @@ function createData(categoria, concluido, valor, inicio, fim, fechamento) {
 
 const rows = [
   createData(
-    "💰 Venda",
-    "✔",
+    "💰 - Venda",
+    "✔ - Concluido",
     600,
     timeSince(new Date(2022, 1, 25, 21, 30)),
     new Date(0, 0, 0, 0, 3).toLocaleTimeString(),
-    "👳‍♂️ Vilson"
+    "👳‍♂️ - Vilson"
   ),
   createData(
-    "🛒 Compra",
-    "❌",
+    "🛒 - Compra",
+    "❌ - Aberto",
     200,
     timeSince(new Date(2022, 1, 25, 21, 43, 15)),
     "00:07:34",
-    "👨 Geremias"
+    "👨 - Geremias"
   ),
 ];
 
 function PedidosPage() {
   return (
-    <MenuComponent>
+    <MenuContainer>
       <PageComponent title="Pedidos" icon="📋">
         <TableContainer component={Paper}>
           <Table
@@ -49,16 +49,12 @@ function PedidosPage() {
           >
             <TableHead>
               <TableRow>
-                <EmojiTableCell emoji="🧾" title="Processo" />
-                <EmojiTableCell emoji="📦" title="Etapa" />
-                <EmojiTableCell emoji="💲" title="Valor" />
-                <EmojiTableCell align="right" emoji="📅" title="Aberto" />
-                <EmojiTableCell align="right" emoji="⏳" title="Tempo" />
-                <EmojiTableCell
-                  align="right"
-                  emoji="👨‍💼"
-                  title="Funcionário"
-                />
+                <EmojiTableCell>{"🧾 - Processo"}</EmojiTableCell>
+                <EmojiTableCell>{"📦 - Etapa"}</EmojiTableCell>
+                <EmojiTableCell>{"💲 - Valor"}</EmojiTableCell>
+                <EmojiTableCell align="right">{"📅 - Aberto"}</EmojiTableCell>
+                <EmojiTableCell align="right">{"⏳ - Tempo"}</EmojiTableCell>
+                <EmojiTableCell align="right">{"👨‍💼 - Funcionário"}</EmojiTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -67,19 +63,19 @@ function PedidosPage() {
                   key={`${i}${row.categoria}`}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell>{row.categoria}</TableCell>
-                  <TableCell>{row.concluido}</TableCell>
+                  <EmojiTableCell variant="p">{row.categoria}</EmojiTableCell>
+                  <EmojiTableCell variant="p">{row.concluido}</EmojiTableCell>
                   <TableCell>{row.valor}</TableCell>
                   <TableCell align="right">{row.inicio}</TableCell>
                   <TableCell align="right">{row.fim}</TableCell>
-                  <TableCell align="right">{row.fechamento}</TableCell>
+                  <EmojiTableCell align="right" variant="p">{row.fechamento}</EmojiTableCell>
                 </TableRow>
               )))}
             </TableBody>
           </Table>
         </TableContainer>
       </PageComponent>
-    </MenuComponent>
+    </MenuContainer>
   );
 }
 

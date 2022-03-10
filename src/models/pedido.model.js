@@ -10,7 +10,8 @@ const Pedido = {
     valor,
     desconto,
     tipo,
-    categoria,
+    processo,
+    etapas,
     concluido,
   }) => ({
     inicio,
@@ -19,11 +20,12 @@ const Pedido = {
     fechamento: fechamento || null,
     cliente: cliente || null,
     fornecedor: fornecedor || null,
-    produtos: produtos || null,
+    produtos: produtos || [], // codigo, valor, estoque, funcionario
     valor: valor || null,
     desconto: desconto || null,
     tipo: tipo || 'saida', // saida=Diminuir Estoque, entrada=Aumentar
-    categoria: categoria || '💰 Venda',
+    processo: processo || '💰 Venda',
+    etapas: etapas || [], // codigo, funcionário, data
     concluido: concluido || null, // null=Não, f=Cancelado, t=Sim 
   }),
 };

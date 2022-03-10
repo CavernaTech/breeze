@@ -7,7 +7,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:"center",
     alignItems:"center",
     minHeight:"100vh",
-    paddingLeft: theme.spacing(6)
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: theme.spacing(6)
+    },
   },
   paper: {
     padding: '1.1em',
@@ -42,8 +44,8 @@ function PageComponent({ children, title, icon }) {
 }
 
 PageComponent.defaultProps = {
-  title: "Página",
-  icon: "📓"
+  title: "",
+  icon: ""
 }
 
 export default PageComponent;
