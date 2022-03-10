@@ -43,7 +43,7 @@ function MenuComponent({
   login,
   logout,
   title,
-  hideLogin
+  hideLogin,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -81,7 +81,7 @@ function MenuComponent({
             </Select>
           )}
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: hideLogin ? "none" : "inherit" }}>
+          <Box sx={{ display: hideLogin ? "none" : "inherit", width: '100%' }}>
             <AccountComponent
               isAuthenticated={isAuthenticated}
               user={user}

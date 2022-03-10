@@ -5,10 +5,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     height: "90vh",
     width: "100%",
-    paddingTop: "5em",
+    paddingTop: "2.8em",
     [theme.breakpoints.up("sm")]: {
       paddingLeft: theme.spacing(6),
-      paddingTop: "3.5em",
     },
   },
   tabs: {
@@ -16,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "divider",
     width: "100%",
     backgroundColor: theme.palette.background.paper,
+  },
+  tab: {
+    margin: 8,
   },
 }));
 
