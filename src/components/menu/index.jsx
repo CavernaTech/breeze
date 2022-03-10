@@ -49,38 +49,32 @@ function MenuComponent({ children, isAuthenticated, user, login, logout }) {
       justifyContent="flex-start"
       spacing={2}
     >
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed">
-          <Toolbar>
-            <IconButton onClick={() => setOpen(!open)} size="small">
-              <Menu />
-            </IconButton>
-            <Select displayEmpty value="my">
-              <MenuItem disabled value="my">
-                Minha Empresa
-              </MenuItem>
-              <Button disabled fullWidth variant="text">
-                <Add />
-                Nova Empresa
-              </Button>
-              <Typography
-                variant="body2"
-                color="text.disabled"
-                textAlign="right"
-              >
-                em breve
-              </Typography>
-            </Select>
-            <Box sx={{ flexGrow: 1 }} />
-            <AccountComponent
-              isAuthenticated={isAuthenticated}
-              user={user}
-              login={login}
-              logout={logout}
-            />
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton onClick={() => setOpen(!open)} size="small">
+            <Menu />
+          </IconButton>
+          <Select displayEmpty value="my">
+            <MenuItem disabled value="my">
+              Minha Empresa
+            </MenuItem>
+            <Button disabled fullWidth variant="text">
+              <Add />
+              Nova Empresa
+            </Button>
+            <Typography variant="body2" color="text.disabled" textAlign="right">
+              em breve
+            </Typography>
+          </Select>
+          <Box sx={{ flexGrow: 1 }} />
+          <AccountComponent
+            isAuthenticated={isAuthenticated}
+            user={user}
+            login={login}
+            logout={logout}
+          />
+        </Toolbar>
+      </AppBar>
       <Grid item sm={open ? 3 : 0}>
         <Paper
           className={clsx(classes.drawer, {
@@ -155,7 +149,7 @@ function MenuComponent({ children, isAuthenticated, user, login, logout }) {
           </MenuList>
         </Paper>
       </Grid>
-      <Grid item sm={open ? 9 : 12}>
+      <Grid item xs={12} sm={open ? 9 : 12}>
         <Box sx={{ height: "6em" }} />
         {children}
       </Grid>
