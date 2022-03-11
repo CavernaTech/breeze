@@ -1,7 +1,4 @@
-import {
-  MenuItem,
-  Select,
-} from "@mui/material";
+import { MenuItem, Select } from "@mui/material";
 
 import MenuContainer from "../containers/menu.container";
 import CheckoutComponent from "../components/checkout";

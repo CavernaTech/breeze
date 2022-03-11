@@ -2,10 +2,8 @@ import { useState } from "react";
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
   Grid,
-  Paper,
   Tab,
   Tabs,
   Typography,
@@ -23,7 +21,7 @@ function CatalogoComponent({ categorias }) {
   const handleTabChange = (e, newValue) => setTab(newValue);
 
   return (
-    <Paper className={classes.paper}>
+    <Box className={classes.paper}>
       <Box className={classes.tabs}>
         <Tabs
           value={tab}
@@ -78,7 +76,7 @@ function CatalogoComponent({ categorias }) {
           ))}
         </TabPanel>
       ))}
-    </Paper>
+    </Box>
   );
 }
 

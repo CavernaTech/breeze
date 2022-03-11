@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     top: "auto",
     whiteSpace: "nowrap",
     position: "fixed",
+    zIndex: 104,
   },
   checkoutOpen: {
     transition: theme.transitions.create("height", {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: "7vh",
   },
   puller: {
-    padding: 20,
+    padding: 40,
     paddingTop: 8,
     borderRadius: 3,
     position: "absolute",
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:
       theme.palette.mode === "light"
         ? theme.palette.grey[300]
-        : theme.palette.grey[900],
+        : theme.palette.grey[600],
   },
 }));
 

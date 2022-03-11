@@ -6,12 +6,13 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     whiteSpace: "nowrap",
     position: "fixed",
+    zIndex: 101,
     left: 0,
     [theme.breakpoints.up("md")]: {
-      width: "25vw"
+      width: "25vw",
     },
-    '&:hover': {
-      color: "palette.primary.main"
+    "&:hover": {
+      color: "palette.primary.main",
     },
   },
   drawerOpen: {
@@ -39,13 +40,13 @@ export const menuItemIconStyles = makeStyles((theme) => ({
     minWidth: 0,
   },
   title: {
-    minWidth: '30%',
+    minWidth: "30%",
   },
   description: {
     color: theme.palette.text.secondary,
     minWidth: 0,
     overflow: "hidden",
-  }
+  },
 }));
 
 export default useStyles;

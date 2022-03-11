@@ -1,4 +1,4 @@
-import { Paper, Typography, Fab, Grid, Tooltip } from "@mui/material";
+import { Paper, Typography, Fab, Tooltip, CardContent } from "@mui/material";
 import { Check } from "@mui/icons-material";
 import clsx from "clsx";
 import { Box } from "@mui/system";
@@ -27,16 +27,22 @@ function CheckoutComponent({ children }) {
           <Box className={classes.greyBox} />
         </Box>
       </Tooltip>
-      <Grid container spacing={10} direction="row">
-        <Grid item>
+      <CardContent>
+        <Box sx={{ display: open ? "inherit" : "none" }}>
+          <Typography variant="h5">
+            Produtos
+          </Typography>
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Box sx={{ flexGrow: 1, display: open ? "inherit" : "none" }} />
           <Typography color="success.light" component="span" variant="h4">
             R$ 100,00
           </Typography>
-        </Grid>
+        </Box>
         <Fab color="secondary" className={classes.fab}>
           <Check />
         </Fab>
-      </Grid>
+      </CardContent>
     </Paper>
   );
 }
