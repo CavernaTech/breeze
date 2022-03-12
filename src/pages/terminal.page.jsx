@@ -5,6 +5,14 @@ import CheckoutComponent from "../components/checkout";
 import CatalogoContainer from "../containers/catalogo.container";
 
 function TerminalPage({ isAuthenticated }) {
+  if (!isAuthenticated) {
+    return (
+      <>
+        <CatalogoContainer />
+        <CheckoutComponent />
+      </>
+    );
+  }
   return (
     <MenuContainer
       title={

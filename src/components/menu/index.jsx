@@ -57,7 +57,7 @@ function MenuComponent({
       justifyContent="flex-start"
       spacing={2}
     >
-      <AppBar position="fixed">
+      <AppBar position="fixed" className={classes.appbar}>
         <Toolbar>
           <IconButton onClick={() => setOpen(!open)} size="small">
             <Menu />
@@ -166,7 +166,14 @@ function MenuComponent({
         </Paper>
       </Grid>
       <Grid item xs={12} sm={open ? 9 : 12}>
-        {children}
+        <Box
+          className={clsx(classes.content, {
+            [classes.contentOpen]: open,
+            [classes.contentClose]: !open,
+          })}
+        >
+          {children}
+        </Box>
       </Grid>
     </Grid>
   );

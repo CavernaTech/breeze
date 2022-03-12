@@ -32,6 +32,20 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(6),
     },
   },
+  appbar: {
+    height: theme.spacing(8),
+  },
+  content: {
+    paddingTop: theme.spacing(6),
+  },
+  contentOpen: {
+    paddingLeft: theme.spacing(8),
+  },
+  contentClose: {
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: theme.spacing(6),
+    },
+  },
 }));
 
 export const menuItemIconStyles = makeStyles((theme) => ({
