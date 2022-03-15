@@ -30,12 +30,16 @@ function FormComponent({ fields, title, value, onSubmit }) {
 
   const handleChange = (e) => {
     const raw = { ...data };
-    raw[e.target.id] = e.target.value;
+    if (e.target.type === "number") {
+      raw[e.target.id] = parseFloat(e.target.value);
+    } else {
+      raw[e.target.id] = e.target.value;
+    }
     setData(raw);
   };
 
   return (
-    <PageComponent title={title}>
+    <PageComponent title={`${title} ${data !== value ? '*' : ''}`}>
       <Box component="form" onSubmit={handleSubmit}>
         <Grid container spacing={4}>
           {fields.map((item) => (
@@ -58,7 +62,7 @@ function FormComponent({ fields, title, value, onSubmit }) {
               type="submit"
               variant="outlined"
             >
-              { value ? "Atualizar" : "Adicionar" }
+              Salvar
             </Button>
           </Grid>
         </Grid>
