@@ -3,10 +3,10 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    minHeight:"80vh",
     [theme.breakpoints.up("sm")]: {
       paddingLeft: theme.spacing(6),
     },

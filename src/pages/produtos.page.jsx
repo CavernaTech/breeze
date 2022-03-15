@@ -1,15 +1,26 @@
-import React from 'react';
-import MenuComponent from '../components/menu/index';
-import PageComponent from '../components/page.component';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import ListingComponent from "../components/listing";
+import PageComponent from "../components/page.component";
+import MenuContainer from "../containers/menu.container";
 
 function ProdutosPage() {
+  const navigate = useNavigate();
+
+  const handleOnClickAdd = () => navigate("/produtos/+");
+
   return (
     <React.Fragment>
-      <MenuComponent>
-        <PageComponent title="Produtos" icon="☕" />
-      </MenuComponent>
+      <MenuContainer>
+        <PageComponent title="Produtos">
+          <ListingComponent
+            onClickAdd={handleOnClickAdd}
+            onClickEdit={() => {}}
+          />
+        </PageComponent>
+      </MenuContainer>
     </React.Fragment>
   );
-};
+}
 
 export default ProdutosPage;
