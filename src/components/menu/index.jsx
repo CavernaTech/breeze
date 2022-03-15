@@ -13,6 +13,7 @@ import {
   Select,
   Toolbar,
   Typography,
+  Fade,
 } from "@mui/material";
 import {
   AirlineStopsOutlined,
@@ -166,14 +167,16 @@ function MenuComponent({
         </Paper>
       </Grid>
       <Grid item xs={12} sm={open ? 9 : 12}>
-        <Box
-          className={clsx(classes.content, {
-            [classes.contentOpen]: open,
-            [classes.contentClose]: !open,
-          })}
-        >
-          {children}
-        </Box>
+        <Fade in unmountOnExit>
+          <Box
+            className={clsx(classes.content, {
+              [classes.contentOpen]: open,
+              [classes.contentClose]: !open,
+            })}
+          >
+            {children}
+          </Box>
+        </Fade>
       </Grid>
     </Grid>
   );

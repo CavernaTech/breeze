@@ -35,47 +35,51 @@ function CatalogoComponent({ categorias }) {
           ))}
         </Tabs>
       </Box>
-      {categorias.map((categoria, index) => (
-        <TabPanel value={tab} index={index}>
-          {categoria.subCategorias.map((subCategoria) => (
-            <Box className={classes.tab}>
-              <Typography variant="body2">{subCategoria.nome}</Typography>
-              <Grid
-                container
-                spacing={2}
-                alignItems="flex-start"
-                alignContent="space-around"
-              >
-                {subCategoria.produtos.map((produto) => (
-                  <Grid item xs={12} md={6}>
-                    <Card>
-                      <CardContent>
-                        <Grid container direction="row" alignContent="center">
-                          <Grid item xs={10}>
-                            <Typography variant="h5">{produto.nome}</Typography>
-                            <Typography variant="body2">
-                              {produto.descricao}
-                            </Typography>
+      <Box className={classes.transition}>
+        {categorias.map((categoria, index) => (
+          <TabPanel value={tab} index={index}>
+            {categoria.subCategorias.map((subCategoria) => (
+              <Box className={classes.tab}>
+                <Typography variant="body2">{subCategoria.nome}</Typography>
+                <Grid
+                  container
+                  spacing={2}
+                  alignItems="flex-start"
+                  alignContent="space-around"
+                >
+                  {subCategoria.produtos.map((produto) => (
+                    <Grid item xs={12} md={6}>
+                      <Card>
+                        <CardContent>
+                          <Grid container direction="row" alignContent="center">
+                            <Grid item xs={10}>
+                              <Typography variant="h5">
+                                {produto.nome}
+                              </Typography>
+                              <Typography variant="body2">
+                                {produto.descricao}
+                              </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                              <Button
+                                color="success"
+                                variant="text"
+                                startIcon={<Add />}
+                              >
+                                {produto.preco}
+                              </Button>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={2}>
-                            <Button
-                              color="success"
-                              variant="text"
-                              startIcon={<Add />}
-                            >
-                              {produto.preco}
-                            </Button>
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          ))}
-        </TabPanel>
-      ))}
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            ))}
+          </TabPanel>
+        ))}
+      </Box>
     </Box>
   );
 }
@@ -104,7 +108,7 @@ CatalogoComponent.defaultProps = {
           nome: "🍜 Massas",
           produtos: [
             {
-              descricao: " Macarrão, Molho de Tomate",
+              descricao: "Macarrão, Molho de Tomate",
               nome: "Espaguete",
               preco: 10000,
             },
@@ -117,7 +121,13 @@ CatalogoComponent.defaultProps = {
       subCategorias: [
         {
           nome: "🍟 Frito",
-          produtos: [],
+          produtos: [
+            {
+              descricao: "Massa com frango",
+              nome: "Coxinha",
+              preco: 10000,
+            },
+          ],
         },
       ],
     },

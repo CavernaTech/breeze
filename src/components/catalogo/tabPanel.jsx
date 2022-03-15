@@ -1,16 +1,28 @@
+import { Box } from "@mui/material";
+import clsx from "clsx";
+
+import useStyle from "./style";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+  const classes = useStyle();
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
+    <Box
+      className={clsx(classes.collapse, {
+        [classes.collapseOpen]: value === index,
+        [classes.collapseClose]: value !== index,
+      })}
     >
-      {value === index && children}
-    </div>
+      <div
+        role="tabpanel"
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {children}
+      </div>
+    </Box>
   );
 }
 

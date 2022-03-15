@@ -5,6 +5,7 @@ import { Box } from "@mui/system";
 
 import useStyles from "./style";
 import { useState } from "react";
+import ExtractTable from "./extract";
 
 function CheckoutComponent({ children }) {
   const classes = useStyles();
@@ -16,34 +17,48 @@ function CheckoutComponent({ children }) {
   };
 
   return (
-    <Paper
-      className={clsx(classes.checkout, {
-        [classes.checkoutOpen]: open,
-        [classes.checkoutClose]: !open,
-      })}
-    >
-      <Tooltip onClick={handleOpen} title="Expandir">
-        <Box className={classes.puller}>
-          <Box className={classes.greyBox} />
-        </Box>
-      </Tooltip>
-      <CardContent>
-        <Box sx={{ display: open ? "inherit" : "none" }}>
-          <Typography variant="h5">
-            Produtos
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex" }}>
-          <Box sx={{ flexGrow: 1, display: open ? "inherit" : "none" }} />
-          <Typography color="success.light" component="span" variant="h4">
-            R$ 100,00
-          </Typography>
-        </Box>
-        <Fab color="secondary" className={classes.fab}>
-          <Check />
-        </Fab>
-      </CardContent>
-    </Paper>
+    <>
+      <button
+        className={clsx(classes.backdrop, {
+          [classes.backdropOpen]: open,
+          [classes.backdropClose]: !open,
+        })}
+        onClick={handleOpen}
+      />
+      <Paper
+        className={clsx(classes.checkout, {
+          [classes.checkoutOpen]: open,
+          [classes.checkoutClose]: !open,
+        })}
+      >
+        <Tooltip onClick={handleOpen} title="Expandir">
+          <Box className={classes.puller}>
+            <Box className={classes.greyBox} />
+          </Box>
+        </Tooltip>
+        <CardContent>
+          <Box sx={{ display: open ? "inherit" : "none" }}>
+            <Typography variant="h5">Produtos</Typography>
+          </Box>
+          <Box>
+            <Box sx={{ display: open ? "inherit" : "none" }}>
+              <ExtractTable />
+            </Box>
+            <Typography
+              color="success.light"
+              component="span"
+              variant="h4"
+              sx={{ display: open ? "none" : "inherit" }}
+            >
+              R$ 100,00
+            </Typography>
+          </Box>
+          <Fab color="secondary" className={classes.fab}>
+            <Check />
+          </Fab>
+        </CardContent>
+      </Paper>
+    </>
   );
 }
 

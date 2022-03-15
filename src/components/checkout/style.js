@@ -45,6 +45,21 @@ const useStyles = makeStyles((theme) => ({
         ? theme.palette.grey[300]
         : theme.palette.grey[600],
   },
+  backdrop: {
+    height: "100vh",
+    width: "100vw",
+    position: "fixed",
+    left: 0,
+    top: 0,
+    backgroundColor: "#21212110",
+    border: 0,
+  },
+  backdropOpen: {
+    display: "inherit",
+  },
+  backdropClose: {
+    display: "none",
+  },
 }));
 
 export default useStyles;

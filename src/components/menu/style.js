@@ -37,6 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     paddingTop: theme.spacing(6),
+    animation: "fadeInAnimation ease 3s",
+    animationIterationCount: "1",
+    animationFillMode: "forwards",
+  },
+  "@keyframes fadeInAnimation": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
   },
   contentOpen: {
     paddingLeft: theme.spacing(8),
