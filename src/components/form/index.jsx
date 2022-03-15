@@ -13,7 +13,7 @@ function getTypeSize(type) {
   }
 }
 
-function FormComponent({ fields, title, value, onSubmit }) {
+function FormComponent({ fields, title, value, onDelete, onSubmit }) {
   const [data, setData] = useState(value || {});
   const classes = useStyles();
 
@@ -23,23 +23,37 @@ function FormComponent({ fields, title, value, onSubmit }) {
     }
   }, [value]);
 
+  const handleChange = (e) => {
+    const raw = { ...data };
+    const input = e.target.value;
+    let parsed;
+    if (e.target.type === "number") {
+      parsed = parseFloat(input);
+    } else {
+      parsed = input;
+    }
+    // eslint-disable-next-line no-self-compare
+    if (parsed === parsed) {
+      // Conferindo por NaN
+      raw[e.target.id] = parsed;
+      setData(raw);
+    }
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    if (window.confirm('Deseja realmente exluir?')) {
+      onDelete();
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(data);
   };
 
-  const handleChange = (e) => {
-    const raw = { ...data };
-    if (e.target.type === "number") {
-      raw[e.target.id] = parseFloat(e.target.value);
-    } else {
-      raw[e.target.id] = e.target.value;
-    }
-    setData(raw);
-  };
-
   return (
-    <PageComponent title={`${title} ${data !== value ? '*' : ''}`}>
+    <PageComponent title={`${title} ${data !== value ? "*" : ""}`}>
       <Box component="form" onSubmit={handleSubmit}>
         <Grid container spacing={4}>
           {fields.map((item) => (
@@ -55,9 +69,22 @@ function FormComponent({ fields, title, value, onSubmit }) {
               />
             </Grid>
           ))}
-          <Grid item xs={12} md={12}>
+          <Grid item xs={12} md={6}>
+            <Button
+              color="error"
+              disabled={!onDelete}
+              fullWidth
+              onClick={handleDelete}
+              type="submit"
+              variant="outlined"
+            >
+              Excluir
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={6}>
             <Button
               color="secondary"
+              disabled={!onSubmit || data === value}
               fullWidth
               type="submit"
               variant="outlined"
@@ -73,6 +100,8 @@ function FormComponent({ fields, title, value, onSubmit }) {
 
 FormComponent.defaultProps = {
   fields: [],
+  onDelete: null,
+  onSubmit: null,
   title: null,
   value: null,
 };

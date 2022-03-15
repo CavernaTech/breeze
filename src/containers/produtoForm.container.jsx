@@ -1,13 +1,21 @@
 import FormComponent from "../components/form";
 
 function ProdutoFormContainer(props) {
-  const value = null;
+  const value = {
+    quantidade: 1,
+  };
   const state = {
     fields: [
       {
         name: "nome",
         type: "text",
         title: "Nome",
+        required: true,
+      },
+      {
+        name: "valor",
+        type: "number",
+        title: "Valor",
         required: true,
       },
       {
@@ -30,6 +38,8 @@ function ProdutoFormContainer(props) {
   };
 
   const functions = {
+    onDelete: () => {},
+    onSubmit: () => {}
   };
 
   return <FormComponent {...state} {...functions} {...props} title="Formulário Produto" />;
