@@ -2,7 +2,6 @@ import { Button, Grid, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import PageComponent from "../page.component";
-import useStyles from "./style";
 
 function getTypeSize(type) {
   switch (type) {
@@ -15,7 +14,6 @@ function getTypeSize(type) {
 
 function FormComponent({ fields, title, value, onDelete, onSubmit }) {
   const [data, setData] = useState(value || {});
-  const classes = useStyles();
 
   useEffect(() => {
     if (value) {

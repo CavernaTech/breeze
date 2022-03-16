@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase, push, ref, set, onValue } from "firebase/database";
 
 const db = getDatabase();
-const getRef = (dataRef) => ref(getDatabase(), `users/${getAuth().currentUser.uid}/${dataRef}`);
+const getRef = (dataRef) => ref(db, `users/${getAuth().currentUser.uid}/${dataRef}`);
 
 const DataRepository = {
   add: (dataRef, data) => set(push(getRef(dataRef), data)),
