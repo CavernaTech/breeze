@@ -4,7 +4,7 @@ import ListingComponent from "../components/listing";
 import PageComponent from "../components/page.component";
 import MenuContainer from "../containers/menu.container";
 
-function ProdutosPage() {
+function ProdutosPage({ fields, items }) {
   const navigate = useNavigate();
 
   const handleOnClickAdd = () => navigate("/produtos/+");
@@ -14,6 +14,8 @@ function ProdutosPage() {
       <MenuContainer>
         <PageComponent title="Produtos">
           <ListingComponent
+            fields={fields}
+            items={items}
             onClickAdd={handleOnClickAdd}
             onClickEdit={() => {}}
           />
