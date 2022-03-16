@@ -7,14 +7,12 @@ import DashboardPage from "./pages/dashboard.page";
 import PedidosPage from "./pages/pedidos.page";
 import EstoquePage from "./pages/estoque.page";
 import CardapiosPage from "./pages/cardapios.page";
-import AuthenticationController from "./controllers/authentication.controller";
 import TerminalContainer from "./containers/terminal.container";
 import ProdutoPage from "./pages/produto.page";
 import ProdutosContainer from "./containers/produtos.container";
 
 function App() {
-  AuthenticationController.useAuthenticationSync();
-
+ 
   return (
     <Theme>
       <CenterBox fixed>

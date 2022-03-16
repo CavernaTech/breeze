@@ -12,8 +12,6 @@ const AuthenticationController = {
   logout: AuthenticationRepository.logout,
   useAuthentication: () => useRecoilValue(authProvider),
   useAuthenticationStatus: () => useRecoilValue(authProviderStatus),
-  useAuthenticationSync: () =>
-    AuthenticationRepository.sessionListen(useSetRecoilState(authProvider)),
   useAuthenticationInfo: () => useRecoilValue(authProviderInfo),
 };
 

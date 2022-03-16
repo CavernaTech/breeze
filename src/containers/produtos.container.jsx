@@ -2,7 +2,6 @@ import ProdutoController from "../controllers/produto.controller";
 import ProdutosPage from "../pages/produtos.page";
 
 function ProdutosContainer(props) {
-  ProdutoController.useProdutosSync();
   const state = {
     fields: [
       {

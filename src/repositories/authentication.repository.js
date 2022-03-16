@@ -27,7 +27,7 @@ const FirebaseRepository = {
   logout: async () => {
     return auth.signOut();
   },
-  sessionListen: (callback) => {
+  sessionListen: async (callback) => {
     if (callback instanceof Function) auth.onAuthStateChanged(callback);
   },
 };
