@@ -1,4 +1,4 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { produtosProvider } from "../provider/produtos.provider";
 
 import DataRepository from "../repositories/data.repository";
