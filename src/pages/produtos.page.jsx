@@ -7,7 +7,8 @@ import MenuContainer from "../containers/menu.container";
 function ProdutosPage({ fields, items }) {
   const navigate = useNavigate();
 
-  const handleOnClickAdd = () => navigate("/produtos/+");
+  const handleAdd = () => navigate("/produtos/+");
+  const handleEdit = (codigo) => navigate("/produtos/" + codigo);
 
   return (
     <React.Fragment>
@@ -16,8 +17,8 @@ function ProdutosPage({ fields, items }) {
           <ListingComponent
             fields={fields}
             items={items}
-            onClickAdd={handleOnClickAdd}
-            onClickEdit={() => {}}
+            onClickAdd={handleAdd}
+            onClickEdit={handleEdit}
           />
         </PageComponent>
       </MenuContainer>

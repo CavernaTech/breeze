@@ -1,5 +1,5 @@
 import { useRecoilValue } from "recoil";
-import { produtosProvider } from "../provider/produtos.provider";
+import { produtosProviderData, produtoProviderByCodigo } from "../provider/produtos.provider";
 
 import DataRepository from "../repositories/data.repository";
 
@@ -7,8 +7,9 @@ const ref = "produtos/";
 
 const ProdutoController = {
   addProduto: (data) => DataRepository.add(ref, data),
-  updateProduto: (id, data) => DataRepository.update(ref + id, data),
-  useProdutos: () => useRecoilValue(produtosProvider),
+  updateProduto: (codigo, data) => DataRepository.update(ref + codigo, data),
+  useProdutos: () => useRecoilValue(produtosProviderData),
+  useProdutoByCodigo: (codigo) => useRecoilValue(produtoProviderByCodigo(codigo))
 };
 
 export default ProdutoController;

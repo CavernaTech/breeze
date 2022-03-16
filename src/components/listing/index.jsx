@@ -10,6 +10,12 @@ import {
 } from "@mui/material";
 
 function ListingComponent({ onClickAdd, onClickEdit, items, fields }) {
+
+  const handleEdit = (e, codigo) => {
+    e.preventDefault();
+    onClickEdit(codigo);
+  };
+
   return (
     <Table>
       <TableHead>
@@ -30,11 +36,11 @@ function ListingComponent({ onClickAdd, onClickEdit, items, fields }) {
       </TableHead>
       <TableBody>
         {items.map((item) => (
-          <TableRow key={item.id}>
+          <TableRow key={item.codigo}>
             {onClickEdit ? (
               <TableCell>
                 <Tooltip title="Editar">
-                  <IconButton color="secondary" onClick={onClickEdit}>
+                  <IconButton color="secondary" onClick={(e) => handleEdit(e, item.codigo)}>
                     <Edit />
                   </IconButton>
                 </Tooltip>
@@ -57,13 +63,13 @@ ListingComponent.defaultProps = {
   onClickEdit: null,
   items: [
     {
-      id: "a",
+      codigo: "a",
       nome: "Testa",
     },
   ],
   fields: [
     {
-      name: "id",
+      name: "codigo",
       title: "Codigo",
     },
     {

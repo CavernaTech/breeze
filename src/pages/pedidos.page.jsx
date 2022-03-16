@@ -23,8 +23,8 @@ const rows = [
     "✔ - Concluido",
     600,
     timeSince(new Date(2022, 1, 25, 21, 30)),
-    new Date(0, 0, 0, 0, 3).toLocaleTimeString(),
-    "👳‍♂️ - Vilson"
+    "00:10:34",
+    "Vilson"
   ),
   createData(
     "🛒 - Compra",
@@ -32,7 +32,7 @@ const rows = [
     200,
     timeSince(new Date(2022, 1, 25, 21, 43, 15)),
     "00:07:34",
-    "👨 - Geremias"
+    "Geremias"
   ),
 ];
 

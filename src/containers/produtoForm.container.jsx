@@ -2,7 +2,9 @@ import FormComponent from "../components/form";
 import ProdutoController from "../controllers/produto.controller";
 
 function ProdutoFormContainer(props) {
-  const value = {
+  const { codigo, onSubmit } = props;
+  const produto = ProdutoController.useProdutoByCodigo(codigo);
+  const value = produto || {
     quantidade: 1,
   };
   const state = {
@@ -38,16 +40,25 @@ function ProdutoFormContainer(props) {
     value,
   };
 
+  const handleSubmit = async (data) => {
+    if (produto) {
+      await ProdutoController.updateProduto(codigo, data);
+    } else {
+      await ProdutoController.addProduto(data);
+    }
+    onSubmit(); 
+  }
+
   const functions = {
     onDelete: () => {},
-    onSubmit: ProdutoController.addProduto,
+    onSubmit: handleSubmit,
   };
 
   return (
     <FormComponent
+      {...props}
       {...state}
       {...functions}
-      {...props}
       title="Formulário Produto"
     />
   );
