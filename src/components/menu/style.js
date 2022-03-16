@@ -6,12 +6,13 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     whiteSpace: "nowrap",
     position: "fixed",
+    zIndex: 101,
     left: 0,
     [theme.breakpoints.up("md")]: {
-      width: "25vw"
+      width: "25vw",
     },
-    '&:hover': {
-      color: "palette.primary.main"
+    "&:hover": {
+      color: "palette.primary.main",
     },
   },
   drawerOpen: {
@@ -31,6 +32,31 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(6),
     },
   },
+  appbar: {
+    height: theme.spacing(8),
+  },
+  content: {
+    paddingTop: theme.spacing(6),
+    animation: "fadeInAnimation ease 3s",
+    animationIterationCount: "1",
+    animationFillMode: "forwards",
+  },
+  "@keyframes fadeInAnimation": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
+  },
+  contentOpen: {
+    paddingLeft: theme.spacing(8),
+  },
+  contentClose: {
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: theme.spacing(6),
+    },
+  },
 }));
 
 export const menuItemIconStyles = makeStyles((theme) => ({
@@ -39,13 +65,13 @@ export const menuItemIconStyles = makeStyles((theme) => ({
     minWidth: 0,
   },
   title: {
-    minWidth: '30%',
+    minWidth: "30%",
   },
   description: {
     color: theme.palette.text.secondary,
     minWidth: 0,
     overflow: "hidden",
-  }
+  },
 }));
 
 export default useStyles;

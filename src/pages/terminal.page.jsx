@@ -1,25 +1,30 @@
-import {
-  AppBar,
-  MenuItem,
-  Select,
-  Toolbar,
-} from "@mui/material";
+import { MenuItem, Select } from "@mui/material";
 
 import MenuContainer from "../containers/menu.container";
 import CheckoutComponent from "../components/checkout";
+import CatalogoContainer from "../containers/catalogo.container";
 
 function TerminalPage({ isAuthenticated }) {
+  if (!isAuthenticated) {
+    return (
+      <>
+        <CatalogoContainer />
+        <CheckoutComponent />
+      </>
+    );
+  }
   return (
-    <MenuContainer>
-      <AppBar position="fixed">
-        <Toolbar>
-          <Select displayEmpty fullWidth value="1">
-            <MenuItem disabled value="1">
-              Mesa 1
-            </MenuItem>
-          </Select>
-        </Toolbar>
-      </AppBar>
+    <MenuContainer
+      title={
+        <Select displayEmpty fullWidth value="1">
+          <MenuItem disabled value="1">
+            Mesa 1
+          </MenuItem>
+        </Select>
+      }
+      hideLogin
+    >
+      <CatalogoContainer />
       <CheckoutComponent />
     </MenuContainer>
   );

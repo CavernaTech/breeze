@@ -7,13 +7,12 @@ import DashboardPage from "./pages/dashboard.page";
 import PedidosPage from "./pages/pedidos.page";
 import EstoquePage from "./pages/estoque.page";
 import CardapiosPage from "./pages/cardapios.page";
-import ProdutosPage from "./pages/produtos.page";
-import AuthenticationController from "./controllers/authentication.controller";
 import TerminalContainer from "./containers/terminal.container";
+import ProdutoPage from "./pages/produto.page";
+import ProdutosContainer from "./containers/produtos.container";
 
 function App() {
-  AuthenticationController.useAuthenticationSync();
-
+ 
   return (
     <Theme>
       <CenterBox fixed>
@@ -26,7 +25,9 @@ function App() {
         <Route path="/" element={<DashboardPage />} />
         <Route path="/pedidos" element={<PedidosPage />} />
         <Route path="/estoque" element={<EstoquePage />} />
-        <Route path="/produtos" element={<ProdutosPage />} />
+        <Route path="/produtos" element={<ProdutosContainer />} />
+        <Route path="/produtos/+" element={<ProdutoPage />} />
+        <Route path="/produtos/:codigo" element={<ProdutoPage />} />
         <Route path="/cardapios" element={<CardapiosPage />} />
         <Route path="/terminal" element={<TerminalContainer />} />
       </Routes>
