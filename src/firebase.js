@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 
-import { firebaseConfig } from './config';
+import { firebaseConfig } from "./config";
 
-const fibaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-export default fibaseApp;
+export default firebaseApp;

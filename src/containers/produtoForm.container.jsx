@@ -1,4 +1,5 @@
 import FormComponent from "../components/form";
+import ProdutoController from "../controllers/produto.controller";
 
 function ProdutoFormContainer(props) {
   const value = {
@@ -34,15 +35,22 @@ function ProdutoFormContainer(props) {
         title: "Categoria",
       },
     ],
-    value
+    value,
   };
 
   const functions = {
     onDelete: () => {},
-    onSubmit: () => {}
+    onSubmit: ProdutoController.addProduto,
   };
 
-  return <FormComponent {...state} {...functions} {...props} title="Formulário Produto" />;
+  return (
+    <FormComponent
+      {...state}
+      {...functions}
+      {...props}
+      title="Formulário Produto"
+    />
+  );
 }
 
 export default ProdutoFormContainer;

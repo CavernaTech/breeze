@@ -19,11 +19,13 @@ export const authProviderInfo = selector({
     const auth = get(authProvider);
     if (auth !== null) {
       return {
+        uid: auth.uid,
         name: auth.displayName,
-        phoo: auth.photoURL,
+        photo: auth.photoURL,
       };
     }
     return {
+      uid: null,
       name: "",
       photo: "",
     };
