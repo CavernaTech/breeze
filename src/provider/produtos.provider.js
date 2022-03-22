@@ -36,11 +36,26 @@ export const produtosProviderData = selector({
   get: ({ get }) => {
     const produtos = get(produtosProvider);
     const result = [];
-    for(let index = 0; index < produtos.data.length; index++) {
+    for (let index = 0; index < produtos.data.length; index++) {
       result.push({
         ...produtos.data[index],
-        codigo: produtos.keys[index]
-      })
+        codigo: produtos.keys[index],
+      });
+    }
+    return result;
+  },
+});
+
+export const produtosProviderTitle = selector({
+  key: "produtosProviderTitle",
+  get: ({ get }) => {
+    const produtos = get(produtosProvider);
+    const result = [];
+    for (let index = 0; index < produtos.data.length; index++) {
+      result.push({
+        codigo: produtos.keys[index],
+        title: produtos.data[index].nome,
+      });
     }
     return result;
   },

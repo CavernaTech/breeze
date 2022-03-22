@@ -10,9 +10,10 @@ import CardapiosPage from "./pages/cardapios.page";
 import TerminalContainer from "./containers/terminal.container";
 import ProdutoPage from "./pages/produto.page";
 import ProdutosContainer from "./containers/produtos.container";
+import CatalogosContainer from "./containers/catalogos.cotainer";
+import CatalogoContainer from "./containers/catalogo.container";
 
 function App() {
- 
   return (
     <Theme>
       <CenterBox fixed>
@@ -28,6 +29,9 @@ function App() {
         <Route path="/produtos" element={<ProdutosContainer />} />
         <Route path="/produtos/+" element={<ProdutoPage />} />
         <Route path="/produtos/:codigo" element={<ProdutoPage />} />
+        <Route path="/catalogos" element={<CatalogosContainer />} />
+        <Route path="/catalogos/+" element={<CatalogoContainer />} />
+        <Route path="/catalogos/:codigo" element={<CatalogoContainer />} />
         <Route path="/cardapios" element={<CardapiosPage />} />
         <Route path="/terminal" element={<TerminalContainer />} />
       </Routes>

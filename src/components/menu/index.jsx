@@ -29,6 +29,7 @@ import {
   MenuBook,
   GroupsOutlined,
   Add,
+  SlideshowOutlined,
 } from "@mui/icons-material";
 import clsx from "clsx";
 
@@ -134,6 +135,12 @@ function MenuComponent({
               to="/produtos"
               icon={<CoffeeOutlined />}
             />
+            <MenuItemIcon
+              title="Catálogos"
+              description="menus e cardápios"
+              icon={<MenuBook />}
+              to="/catalogos"
+            />
             <MenuItemIcon disabled title="Processos" icon={<Cable />} />
             <MenuItemIcon
               disabled
@@ -162,7 +169,11 @@ function MenuComponent({
               to="/terminal"
               icon={<MoveToInbox />}
             />
-            <MenuItemIcon disabled title="Catálogos" icon={<MenuBook />} />
+            <MenuItemIcon
+              disabled
+              title="Andon de Catálogo"
+              icon={<SlideshowOutlined />}
+            />
           </MenuList>
         </Paper>
       </Grid>
