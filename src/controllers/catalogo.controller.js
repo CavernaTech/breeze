@@ -2,9 +2,9 @@ import { useRecoilValue } from "recoil";
 import {
   catalogosProviderData,
   catalogoProviderByCodigo,
-} from "../provider/catalogos.provider";
+} from "../provider/config";
 
-import DataRepository from "../repositories/data.repository";
+import DataRepository from "../repositories/config.repository";
 
 const ref = "catalogos/";
 

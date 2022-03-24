@@ -1,24 +1,14 @@
 import { useParams } from "react-router";
+import FormComponent from "../components/form";
 import CatalogoController from "../controllers/catalogo.controller";
 import ProdutoController from "../controllers/produto.controller";
-import CatalogoPage from "../pages/catalogo.page";
 
 function CatalogoContainer(props) {
-  const { onSubmit } = props;
+  const { codigo, onSubmit } = props;
   const params = useParams();
   const produtos = ProdutoController.useProdutosTitle();
-  const catalogo = null;
-  const value = {
-    nome: "Teste",
-    subcategorias: [
-      {
-        nome: "Subteste",
-        produtos: [
-          "asdas"
-        ]
-      }
-    ]
-  };
+  const catalogo = CatalogoController.useCatalogoByCodigo(codigo);
+  const value = (catalogo && JSON.parse(JSON.stringify(catalogo))) || {};
   const state = {
     fields: [
       {
@@ -46,12 +36,12 @@ function CatalogoContainer(props) {
               {
                 name: "nome",
                 type: "text",
-                title: "Nome"
+                title: "Nome",
               },
             ],
-            options: produtos
-          }
-        ]
+            options: produtos,
+          },
+        ],
       },
     ],
     value,
@@ -63,15 +53,22 @@ function CatalogoContainer(props) {
     } else {
       await CatalogoController.addCatalogo(data);
     }
-    onSubmit(); 
-  }
+    onSubmit();
+  };
 
   const functions = {
     onDelete: () => {},
     onSubmit: handleSubmit,
   };
 
-  return <CatalogoPage {...state} {...functions} {...props} />;
+  return (
+    <FormComponent
+      {...props}
+      {...state}
+      {...functions}
+      title="Formulário Categoria"
+    />
+  );
 }
 
 export default CatalogoContainer;

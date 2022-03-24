@@ -1,21 +1,14 @@
-import { useNavigate } from "react-router-dom";
-import FormComponent from "../components/form";
+import { useNavigate, useParams } from "react-router-dom";
 import MenuContainer from "../containers/menu.container";
+import CatalogoFormContainer from "../containers/catalogoForm.container";
 
-function CatalogoPage(props) {
-  const { onSubmit } = props;
+function CatalogoPage() {
+  const params = useParams();
   const navigate = useNavigate();
-  const handleSubmit = (data) => {
-    onSubmit(data);
-    navigate("/catalogos");
-  };
+  const handleSubmit = () => navigate("/catalogos");
   return (
     <MenuContainer>
-      <FormComponent
-        {...props}
-        onSubmit={handleSubmit}
-        title="Formulário Catálogo"
-      />
+      <CatalogoFormContainer codigo={params.codigo} onSubmit={handleSubmit} />
     </MenuContainer>
   );
 }

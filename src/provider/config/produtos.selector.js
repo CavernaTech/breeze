@@ -1,34 +1,13 @@
-import { getAuth } from "firebase/auth";
-import { getDatabase, onValue, ref } from "firebase/database";
-import { atom, selector, selectorFamily } from "recoil";
+import { selector, selectorFamily } from "recoil";
 
-const syncProdutosEffect = ({ setSelf }) => {
-  getAuth().onAuthStateChanged((cur) => {
-    if (cur) {
-      onValue(ref(getDatabase(), `users/${cur.uid}/produtos`), (snapshot) => {
-        const val = snapshot.val();
-        const data = [];
-        const keys = [];
-        for (let key in val) {
-          data.push(val[key]);
-          keys.push(key);
-        }
-        setSelf({
-          data,
-          keys,
-        });
-      });
-    }
-  });
-};
+import { configAtom } from "./config.atom";
 
-export const produtosProvider = atom({
+export const produtosProvider = selector({
   key: "produtosProvider",
-  default: {
-    data: [],
-    keys: [],
+  get: ({ get }) => {
+    const data = get(configAtom);
+    return data.produtos || { data: [], keys: [] };
   },
-  effects: [syncProdutosEffect],
 });
 
 export const produtosProviderData = selector({

@@ -2,13 +2,13 @@ import { MenuItem, Select } from "@mui/material";
 
 import MenuContainer from "../containers/menu.container";
 import CheckoutComponent from "../components/checkout";
-import CatalogoContainer from "../containers/catalogo.container";
+// import CatalogoContainer from "../containers/catalogo.container";
 
 function TerminalPage({ isAuthenticated }) {
   if (!isAuthenticated) {
     return (
       <>
-        <CatalogoContainer />
+        {/* <CatalogoContainer /> */}
         <CheckoutComponent />
       </>
     );
@@ -24,7 +24,7 @@ function TerminalPage({ isAuthenticated }) {
       }
       hideLogin
     >
-      <CatalogoContainer />
+      {/* <CatalogoContainer /> */}
       <CheckoutComponent />
     </MenuContainer>
   );

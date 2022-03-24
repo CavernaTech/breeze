@@ -11,7 +11,7 @@ import TerminalContainer from "./containers/terminal.container";
 import ProdutoPage from "./pages/produto.page";
 import ProdutosContainer from "./containers/produtos.container";
 import CatalogosContainer from "./containers/catalogos.cotainer";
-import CatalogoContainer from "./containers/catalogo.container";
+import CatalogoPage from "./pages/catalogo.page";
 
 function App() {
   return (
@@ -30,8 +30,8 @@ function App() {
         <Route path="/produtos/+" element={<ProdutoPage />} />
         <Route path="/produtos/:codigo" element={<ProdutoPage />} />
         <Route path="/catalogos" element={<CatalogosContainer />} />
-        <Route path="/catalogos/+" element={<CatalogoContainer />} />
-        <Route path="/catalogos/:codigo" element={<CatalogoContainer />} />
+        <Route path="/catalogos/+" element={<CatalogoPage />} />
+        <Route path="/catalogos/:codigo" element={<CatalogoPage />} />
         <Route path="/cardapios" element={<CardapiosPage />} />
         <Route path="/terminal" element={<TerminalContainer />} />
       </Routes>
