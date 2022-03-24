@@ -2,8 +2,10 @@ import { getAuth } from "firebase/auth";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { atom } from "recoil";
 
-const syncConfigEffect = ({ setSelf }) => {
-  getAuth().onAuthStateChanged((cur) => {
+import firebaseApp from "../../firebase";
+
+function syncConfigEffect({ setSelf }) {
+  getAuth(firebaseApp).onIdTokenChanged((cur) => {
     if (cur) {
       onValue(ref(getDatabase(), `users/${cur.uid}/config`), (snapshot) => {
         const val = snapshot.val();

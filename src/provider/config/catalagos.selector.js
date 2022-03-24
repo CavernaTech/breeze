@@ -45,7 +45,6 @@ export const catalogoProviderByCodigo = selectorFamily({
   get:
     (codigo) =>
     ({ get }) => {
-      console.log(codigo);
       const catalogos = get(catalogosProvider);
       let index = -1;
       try {
