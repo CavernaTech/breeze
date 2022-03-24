@@ -159,8 +159,9 @@ function FormComponent({ fields, title, value, onDelete, onSubmit }) {
                                           .map((o) =>
                                             selected.includes(o.codigo)
                                               ? o.title
-                                              : ""
+                                              : undefined
                                           )
+                                          .filter((item) => item !== undefined)
                                           .join(", ")
                                       }
                                       required={child.required}
