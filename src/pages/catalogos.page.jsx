@@ -12,7 +12,7 @@ function CatalogosPage({ items, fields }) {
 
   return (
     <MenuContainer>
-      <PageComponent title="Categorias">
+      <PageComponent title="Catálogos">
         <ListingComponent
           onClickAdd={handleAdd}
           onClickEdit={handleEdit}

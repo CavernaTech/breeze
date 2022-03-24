@@ -8,7 +8,7 @@ function CatalogoPage() {
   const handleSubmit = () => navigate("/catalogos");
   return (
     <MenuContainer>
-      <CatalogoFormContainer codigo={params.codigo} onSubmit={handleSubmit} />
+      <CatalogoFormContainer codigo={params.codigo} onSubmit={handleSubmit} title="Formulário Catálogo" />
     </MenuContainer>
   );
 }

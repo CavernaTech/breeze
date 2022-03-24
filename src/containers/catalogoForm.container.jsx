@@ -66,7 +66,6 @@ function CatalogoContainer(props) {
       {...props}
       {...state}
       {...functions}
-      title="Formulário Categoria"
     />
   );
 }
