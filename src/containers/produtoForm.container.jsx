@@ -27,14 +27,9 @@ function ProdutoFormContainer(props) {
         title: "Quantidade",
       },
       {
-        name: "tipo",
+        name: "descricao",
         type: "text",
-        title: "Tipo",
-      },
-      {
-        name: "categoria",
-        type: "text",
-        title: "Categoria",
+        title: "Descrição",
       },
     ],
     value,

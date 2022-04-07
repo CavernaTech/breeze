@@ -3,6 +3,7 @@ import {
   catalogoProviderByCodigo,
   catalogosProviderTitle,
   catalogosProviderData,
+  catalogosProviderProdutos,
 } from "./catalagos.selector";
 import {
   produtosProvider,
@@ -16,6 +17,7 @@ export {
   catalogoProviderByCodigo,
   catalogosProviderTitle,
   catalogosProviderData,
+  catalogosProviderProdutos,
   produtosProvider,
   produtoProviderByCodigo,
   produtosProviderTitle,

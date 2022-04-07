@@ -1,6 +1,7 @@
-import { selector, selectorFamily } from "recoil";
+import { selector, selectorFamily, useRecoilValue } from "recoil";
 
 import { configAtom } from "./config.atom";
+import { produtoProviderByCodigo, produtosProvider } from "./produtos.selector";
 
 export const catalogosProvider = selector({
   key: "catalogosProvider",
@@ -49,9 +50,8 @@ export const catalogoProviderByCodigo = selectorFamily({
       let index = -1;
       try {
         index = catalogos.keys.indexOf(codigo);
-        
       } catch (error) {
-        console.log('AA', error);
+        console.log("AA", error);
       }
 
       if (index > -1) {
@@ -59,4 +59,31 @@ export const catalogoProviderByCodigo = selectorFamily({
       }
       return undefined;
     },
+});
+
+export const catalogosProviderProdutos = selector({
+  key: "catalogosProviderProdutos",
+  get: ({ get }) => {
+    const catalogos = get(catalogosProvider);
+    const produtos = get(produtosProvider);
+    const result = [];
+    for (let index = 0; index < catalogos.data.length; index++) {
+      const catalogo = {
+        ...catalogos.data[index],
+        codigo: catalogos.keys[index],
+      };
+      if (catalogo.subcategorias) {
+        catalogo.subcategorias = catalogo.subcategorias.map((sub) => ({
+          ...sub,
+          produtos: sub.produtos
+            ? sub.produtos.map(
+                (codigo) => produtos.data[produtos.keys.indexOf(codigo)] || undefined
+              )
+            : [],
+        }));
+      }
+      result.push(catalogo);
+    }
+    return result;
+  },
 });

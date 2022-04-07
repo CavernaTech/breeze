@@ -217,28 +217,30 @@ function FormComponent({ fields, title, value, onDelete, onSubmit }) {
               </Grid>
             );
           })}
-          <Grid item xs={12} md={6}>
-            <Button
-              color="error"
-              disabled={!onDelete}
-              fullWidth
-              onClick={handleDelete}
-              type="submit"
-              variant="outlined"
-            >
-              Excluir
-            </Button>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Button
-              color="secondary"
-              disabled={!onSubmit || data === value}
-              fullWidth
-              type="submit"
-              variant="outlined"
-            >
-              Salvar
-            </Button>
+          <Grid item container xs={12} md={12} spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Button
+                color="error"
+                disabled={!onDelete}
+                fullWidth
+                onClick={handleDelete}
+                type="submit"
+                variant="outlined"
+              >
+                Excluir
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                color="secondary"
+                disabled={!onSubmit || data === value}
+                fullWidth
+                type="submit"
+                variant="outlined"
+              >
+                Salvar
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Box>

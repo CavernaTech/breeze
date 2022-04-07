@@ -38,16 +38,16 @@ function CatalogoComponent({ categorias }) {
       <Box className={classes.transition}>
         {categorias.map((categoria, index) => (
           <TabPanel value={tab} index={index}>
-            {categoria.subCategorias.map((subCategoria) => (
+            {categoria.subcategorias.map((subcategoria) => (
               <Box className={classes.tab}>
-                <Typography variant="body2">{subCategoria.nome}</Typography>
+                <Typography variant="body2">{subcategoria.nome}</Typography>
                 <Grid
                   container
                   spacing={2}
                   alignItems="flex-start"
                   alignContent="space-around"
                 >
-                  {subCategoria.produtos.map((produto) => (
+                  {subcategoria.produtos.map((produto) => (
                     <Grid item xs={12} md={6}>
                       <Card>
                         <CardContent>
@@ -66,7 +66,7 @@ function CatalogoComponent({ categorias }) {
                                 variant="text"
                                 startIcon={<Add />}
                               >
-                                {produto.preco}
+                                {produto.valor}
                               </Button>
                             </Grid>
                           </Grid>
@@ -88,7 +88,7 @@ CatalogoComponent.defaultProps = {
   categorias: [
     {
       nome: "🍝 Prato Feito",
-      subCategorias: [
+      subcategorias: [
         {
           nome: "🥩 Carne",
           produtos: [
@@ -118,7 +118,7 @@ CatalogoComponent.defaultProps = {
     },
     {
       nome: "🍔 Lanche",
-      subCategorias: [
+      subcategorias: [
         {
           nome: "🍟 Frito",
           produtos: [
@@ -133,7 +133,7 @@ CatalogoComponent.defaultProps = {
     },
     {
       nome: "🍹 Bebida",
-      subCategorias: [
+      subcategorias: [
         {
           nome: "🥤 Suco",
           produtos: [],

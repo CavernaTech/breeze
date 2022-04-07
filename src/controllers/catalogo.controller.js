@@ -2,6 +2,7 @@ import { useRecoilValue } from "recoil";
 import {
   catalogosProviderData,
   catalogoProviderByCodigo,
+  catalogosProviderProdutos,
 } from "../provider/config";
 
 import DataRepository from "../repositories/config.repository";
@@ -14,6 +15,7 @@ const CatalogoController = {
   useCatalogos: () => useRecoilValue(catalogosProviderData),
   useCatalogoByCodigo: (codigo) =>
     useRecoilValue(catalogoProviderByCodigo(codigo)),
+  useCatalogosProdutos: () => useRecoilValue(catalogosProviderProdutos),
 };
 
 export default CatalogoController;
