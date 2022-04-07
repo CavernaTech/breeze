@@ -26,10 +26,10 @@ function PageComponent({ children, title, icon }) {
       <Paper className={classes.paper}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Typography variant="h2">{icon}</Typography>
+            <Typography variant="h4">{icon}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h3">{title}</Typography>
+            <Typography variant="h5">{title}</Typography>
           </Grid>
           <Grid item xs={12}>
             {children}

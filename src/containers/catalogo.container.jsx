@@ -1,7 +1,10 @@
+import CatalogoController from "../controllers/catalogo.controller";
 import CatalogoComponent from "../components/catalogo";
 
 function CatalogoContainer(props) {
-  const state = {};
+  const state = {
+    categorias: CatalogoController.useCatalogosProdutos(),
+  };
 
   const functions = {};
 

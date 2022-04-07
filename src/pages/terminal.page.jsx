@@ -1,10 +1,10 @@
-import { MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 import MenuContainer from "../containers/menu.container";
 import CheckoutComponent from "../components/checkout";
 import CatalogoContainer from "../containers/catalogo.container";
 
-function TerminalPage({ isAuthenticated }) {
+function TerminalPage({ isAuthenticated, clientes }) {
   if (!isAuthenticated) {
     return (
       <>
@@ -16,11 +16,14 @@ function TerminalPage({ isAuthenticated }) {
   return (
     <MenuContainer
       title={
-        <Select displayEmpty fullWidth value="1">
-          <MenuItem disabled value="1">
-            Mesa 1
-          </MenuItem>
-        </Select>
+        <FormControl fullWidth>
+          <InputLabel id="cliente-select-label">Selecionar Cliente</InputLabel>
+          <Select fullWidth label="Selecionar Cliente" labelId="cliente-select-label" value="">
+            {clientes.map((cliente) => (
+              <MenuItem value={cliente.codigo}>{cliente.nome}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       }
       hideLogin
     >
@@ -32,6 +35,7 @@ function TerminalPage({ isAuthenticated }) {
 
 TerminalPage.defaultProps = {
   isAuthenticated: false,
+  clientes: [],
 };
 
 export default TerminalPage;

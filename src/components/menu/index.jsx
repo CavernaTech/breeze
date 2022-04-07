@@ -23,12 +23,13 @@ import {
   ContactPageOutlined,
   DashboardOutlined,
   HailOutlined,
-  MoveToInbox,
   Inventory2Outlined,
   Menu,
-  MenuBook,
   GroupsOutlined,
   Add,
+  SlideshowOutlined,
+  MenuBookOutlined,
+  MoveToInboxOutlined,
 } from "@mui/icons-material";
 import clsx from "clsx";
 
@@ -134,16 +135,23 @@ function MenuComponent({
               to="/produtos"
               icon={<CoffeeOutlined />}
             />
+            <MenuItemIcon
+              title="Catálogos"
+              description="menus e cardápios"
+              icon={<MenuBookOutlined />}
+              to="/catalogos"
+            />
+            <MenuItemIcon
+              title="Clientes"
+              description="cadastro e controle"
+              to="/clientes"
+              icon={<ContactPageOutlined />}
+            />
             <MenuItemIcon disabled title="Processos" icon={<Cable />} />
             <MenuItemIcon
               disabled
               title="Etapas"
               icon={<AirlineStopsOutlined />}
-            />
-            <MenuItemIcon
-              disabled
-              title="Clientes"
-              icon={<ContactPageOutlined />}
             />
             <MenuItemIcon
               disabled
@@ -160,9 +168,13 @@ function MenuComponent({
               title="Terminal de Pedidos"
               description="abertura e acompanhamento"
               to="/terminal"
-              icon={<MoveToInbox />}
+              icon={<MoveToInboxOutlined />}
             />
-            <MenuItemIcon disabled title="Catálogos" icon={<MenuBook />} />
+            <MenuItemIcon
+              disabled
+              title="Andon de Catálogo"
+              icon={<SlideshowOutlined />}
+            />
           </MenuList>
         </Paper>
       </Grid>

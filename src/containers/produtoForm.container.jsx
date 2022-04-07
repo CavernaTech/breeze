@@ -4,7 +4,7 @@ import ProdutoController from "../controllers/produto.controller";
 function ProdutoFormContainer(props) {
   const { codigo, onSubmit } = props;
   const produto = ProdutoController.useProdutoByCodigo(codigo);
-  const value = produto || {
+  const value = { ...produto } || {
     quantidade: 1,
   };
   const state = {
@@ -27,14 +27,9 @@ function ProdutoFormContainer(props) {
         title: "Quantidade",
       },
       {
-        name: "tipo",
+        name: "descricao",
         type: "text",
-        title: "Tipo",
-      },
-      {
-        name: "categoria",
-        type: "text",
-        title: "Categoria",
+        title: "Descrição",
       },
     ],
     value,

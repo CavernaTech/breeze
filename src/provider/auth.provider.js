@@ -1,7 +1,11 @@
 import { getAuth } from "firebase/auth";
 import { atom, selector } from "recoil";
 
-const syncAuthEffect = ({ setSelf }) => getAuth().onAuthStateChanged(setSelf);
+import firebaseApp from "../firebase";
+
+const syncAuthEffect = ({ setSelf }) => getAuth(firebaseApp).onAuthStateChanged((user) => {
+  if (user) setSelf(JSON.parse(JSON.stringify(user)));
+});
 
 export const authProvider = atom({
   key: "authProvider",
