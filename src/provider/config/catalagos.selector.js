@@ -1,7 +1,7 @@
-import { selector, selectorFamily, useRecoilValue } from "recoil";
+import { selector, selectorFamily } from "recoil";
 
 import { configAtom } from "./config.atom";
-import { produtoProviderByCodigo, produtosProvider } from "./produtos.selector";
+import { produtosProvider } from "./produtos.selector";
 
 export const catalogosProvider = selector({
   key: "catalogosProvider",
@@ -77,7 +77,8 @@ export const catalogosProviderProdutos = selector({
           ...sub,
           produtos: sub.produtos
             ? sub.produtos.map(
-                (codigo) => produtos.data[produtos.keys.indexOf(codigo)] || undefined
+                (codigo) =>
+                  produtos.data[produtos.keys.indexOf(codigo)] || undefined
               )
             : [],
         }));
