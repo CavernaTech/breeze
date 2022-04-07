@@ -6,6 +6,12 @@ import {
   catalogosProviderProdutos,
 } from "./catalagos.selector";
 import {
+  clientesProvider,
+  clienteProviderByCodigo,
+  clientesProviderTitle,
+  clientesProviderData,
+} from "./clientes.selector";
+import {
   produtosProvider,
   produtoProviderByCodigo,
   produtosProviderTitle,
@@ -18,6 +24,10 @@ export {
   catalogosProviderTitle,
   catalogosProviderData,
   catalogosProviderProdutos,
+  clientesProvider,
+  clienteProviderByCodigo,
+  clientesProviderTitle,
+  clientesProviderData,
   produtosProvider,
   produtoProviderByCodigo,
   produtosProviderTitle,

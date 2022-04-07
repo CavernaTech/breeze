@@ -141,16 +141,17 @@ function MenuComponent({
               icon={<MenuBookOutlined />}
               to="/catalogos"
             />
+            <MenuItemIcon
+              title="Clientes"
+              description="cadastro e controle"
+              to="/clientes"
+              icon={<ContactPageOutlined />}
+            />
             <MenuItemIcon disabled title="Processos" icon={<Cable />} />
             <MenuItemIcon
               disabled
               title="Etapas"
               icon={<AirlineStopsOutlined />}
-            />
-            <MenuItemIcon
-              disabled
-              title="Clientes"
-              icon={<ContactPageOutlined />}
             />
             <MenuItemIcon
               disabled

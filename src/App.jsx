@@ -12,6 +12,8 @@ import ProdutoPage from "./pages/produto.page";
 import ProdutosContainer from "./containers/produtos.container";
 import CatalogosContainer from "./containers/catalogos.cotainer";
 import CatalogoPage from "./pages/catalogo.page";
+import ClientesContainer from "./containers/clientes.container";
+import ClientePage from "./pages/cliente.page";
 
 function App() {
   return (
@@ -34,6 +36,9 @@ function App() {
         <Route path="/catalogos/:codigo" element={<CatalogoPage />} />
         <Route path="/cardapios" element={<CardapiosPage />} />
         <Route path="/terminal" element={<TerminalContainer />} />
+        <Route path="/clientes" element={<ClientesContainer />} />
+        <Route path="/clientes/+" element={<ClientePage />} />
+        <Route path="/clientes/:codigo" element={<ClientePage />} />
       </Routes>
     </Theme>
   );
